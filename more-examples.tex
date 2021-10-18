@@ -1,0 +1,49 @@
+
+\chapter{More examples}
+
+\section{Equations}
+
+Here's an equation,
+\begin{equation}
+E=mc^2.\label{eq:einstein}
+\end{equation}
+
+\noindent I can reference that easily in the text: \autoref{eq:einstein}. It's even a hyperlink. How nice. 
+
+\section{Opening and closing quotes}
+
+Unlike modern word processors, you need to specify in \LaTeX{} which quote mark to print. To get an opening quote you use a backtick and the regular apostrophe for a closing quote. Double them up for speech. ``This isn't so hard after all''. One just needs to `get used' to it. 
+
+One should never use an apostrophe for plurals. Nope, not even for abbreviations, e.g. in the 1990s, people bought CDs from Virgin Megastores. 
+
+In the \textbf{extremely} rare cases where it's unclear, match it with an opening quote if you must. I got three `A's for my AS Levels. 
+
+\section{Tables}
+
+Tables are joyous fun. The \verb+tabular+ environment is the most common, although it's rather old fashioned and wrangling it into doing what you want can be arcane. Happily, tablesgenerator.com can produce tables from a visual editor or paste from word.
+
+A few things to help you unlearn bad table habits:
+
+\begin{itemize}
+    \item You should not use vertical lines in tables. Seriously -- this is an awful 1990s era default from Microsoft Word which has hung around and never gone away. 
+    \item the booktabs package can make prettier tables (vertical lines are intentionally banned) - select this option in tablesgenerator. I have included the package for you
+    \item You should use tables for comparing numerical data and not as a way of laying out content or paragraph text
+\end{itemize}
+
+\begin{table}
+    \centering
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Feature} & \textbf{Liked (\%)} & \textbf{Disliked (\%)} & \textbf{Didn't know (\%)}  \\ \midrule
+        Vertical lines & 0 & 90 & 10 \\
+        Using Word & 40 & 40 & 20 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Made up percentages of participants that liked random features}
+    \label{tab:sample}
+\end{table}
+
+\noindent \autoref{tab:sample} shows a simple table made by hand by yours truly. Note that the column separator is \& which means you must always escape that character if you want to use it in text.
+
+
+

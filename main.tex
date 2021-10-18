@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[export]{adjustbox}
+\usepackage[style=apa, backend=biber]{biblatex}
+\DefineBibliographyStrings{english}{%
+  bibliography = {References},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% ADD ANY ADDITIONAL PACKAGES BELOW
+% Uncomment for blank lines between paragraphs rather than
+% indents
+\usepackage[parfill]{parskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%
+
+\addbibresource{refs.bib}
+
+\usepackage[linktocpage=true]{hyperref}	% This creates hyperlinks and moves the contents links to the page number for clarity
+% There are lots of options you can alter to what you want, see http://www.tug.org/applications/hyperref/manual.html
+\usepackage[font=small,labelfont=bf]{caption}	% This ensures hyperlinks to figures link to the top of the figure not the caption. This line must come after the previous one (hyperref package).
+\linespread{1.3}
+
+
+\begin{document}
+\pagenumbering{alph}	% This stops the title page being counted in the page numbering
+\thispagestyle{empty}	% This stops a number being put at the bottom
+\vspace*{1mm}	% The asterisk is needed because it's at the top of a page
+\includegraphics[width=0.8\textwidth, center]{figures/UoP_Master_Logo_Linear_PMS.eps}
+\vspace{10mm}
+
+\begin{center}
+% Put the full title  on the front page
+\huge\textbf{\textsf{sEMG Silent Speech Research}}\\
+\vspace{15mm}
+% The student handbook states you need your full name on the front page
+\large \textbf{Tada Makepeace}\\
+
+
+\vspace{10mm}
+\normalsize School of Computing \\ Final Year Research Project \\
+
+\vspace{20mm}
+%
+\today	% This prints todays date, eg. ``January 1, 2012``.
+% Make sure all of the above fits on the front page, otherwise you will have to change the spacings, eg. to accomodate a long title
+\end{center}
+\newpage
+\pagenumbering{roman}	% This sets page numbers to be Roman numerals for the preliminaries
+\phantomsection	% This makes the abstract's bookmark link to the top of the page instead of the title line.
+\addcontentsline{toc}{chapter}{Abstract}	% Gives the Abstract a contents entry
+\chapter*{Abstract}	% The asterisk stops a chapter number being assigned
+
+No more than 300 words summarizing this dissertation.
+
+\newpage
+\renewcommand{\contentsname}{Table of Contents}	% Changes the contents title from 'Contents' to 'Table of Contents' just because it looks better.
+\pdfbookmark{Table of Contents}{contents}	% Adds a bookmark 'Table of Contents' in the PDF and labelled 'contents' for the hyperref package.
+\tableofcontents
+
+\newpage
+\pdfbookmark{List of Tables}{tables}	% Adds a bookmark 'List of Tables' in the PDF and labelled 'tables' for the hyperref package.
+\listoftables
+
+\newpage
+\pdfbookmark{List of Figures}{figures}	% Adds a bookmark 'List of Figures' in the PDF and labelled 'figures' for the hyperref package.
+\listoffigures
+
+% The commands for the preliminary sections below serve the same purposes as for the abstract section above, You can add or remove sections as you see fit.
+% Here might also be a good place to put a dedication if you want.
+%\newpage
+%To...
+
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\chapter*{Acknowledgements}
+Thanks.
+\newpage
+
+
+\pagenumbering{arabic}	% Begins normal page numbering for the body of the report.
+
+
+%%%%%%%%%%%%%%%%% INCLUDE YOUR CHAPTERS BELOW
+% for each chapter, create a new .tex file (e.g. litreview.tex) and then use \include to include them in your output. Use a descriptive name, not their number (as these can change!).
+% If you move the order around, all the cross references remain, sensibly renumbered.
+% yay!
+\include{intro}
+\include{more-examples}
+
+
+%%%%%%%%%%%%%% REFERENCES SECTION
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+% In order to try and get a consistent format I copy and paste the INSPIRE bibtex code into my bibtex file.
+\printbibliography
+
+%%%%%%%%%%%%%%% APPENDICES
+\appendix
+\chapter{First Appendix}
+
+
+
+\end{document}
