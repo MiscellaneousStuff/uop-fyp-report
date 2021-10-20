@@ -1,3 +1,151 @@
+Literature Review - Original sEMG Systems
+@article{lit_review_semg_history,
+author = {Wang, You and Zhang, Ming and Wu, Rumeng and Gao, Han and Yang, Meng and Luo, Zhiyuan and Li, Guang},
+year = {2020},
+month = {07},
+pages = {442},
+title = {Silent Speech Decoding Using Spectrogram Features Based on Neuromuscular Activities},
+volume = {10},
+journal = {Brain Sciences},
+doi = {10.3390/brainsci10070442}
+}
+
+Literature Review - Pruning
+@misc{liebenwein2021lost,
+      title={Lost in Pruning: The Effects of Pruning Neural Networks beyond Test Accuracy}, 
+      author={Lucas Liebenwein and Cenk Baykal and Brandon Carter and David Gifford and Daniela Rus},
+      year={2021},
+      eprint={2103.03014},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+Literature Review - Quantization
+@misc{wu2020integer,
+      title={Integer Quantization for Deep Learning Inference: Principles and Empirical Evaluation}, 
+      author={Hao Wu and Patrick Judd and Xiaojie Zhang and Mikhail Isaev and Paulius Micikevicius},
+      year={2020},
+      eprint={2004.09602},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+OpenAI 2018 BlogPost - Details useful tools and other information which is used for the MLOps side of the project
+@misc{OpenAI_dota,
+  author = {OpenAI},
+  title = {OpenAI Five},
+  howpublished = {\url{https://web.archive.org/web/20210422020001/https://openai.com/blog/openai-five/}},
+  year = {2018}
+}
+
+Efficient CapsNet - Might be very useful in the feature detection aspect of EEG dimensionality reduction and correlating features before
+passing them on to a recurrent / transformer network
+@misc{mazzia2021efficientcapsnet,
+      title={Efficient-CapsNet: Capsule Network with Self-Attention Routing}, 
+      author={Vittorio Mazzia and Francesco Salvetti and Marcello Chiaberge},
+      year={2021},
+      eprint={2101.12491},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+Original CapsNet paper by Hinton, et al.
+@misc{sabour2017dynamic,
+      title={Dynamic Routing Between Capsules}, 
+      author={Sara Sabour and Nicholas Frosst and Geoffrey E Hinton},
+      year={2017},
+      eprint={1710.09829},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+EfficientNet - Automatically adjusts baseline image classification network based on
+required attributes of new model
+@misc{tan2020efficientnet,
+      title={EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks}, 
+      author={Mingxing Tan and Quoc V. Le},
+      year={2020},
+      eprint={1905.11946},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+ResNet - Original Paper, refer to this when describing digital voicing papers
+and our new model which will definitely use some variation of this
+@INPROCEEDINGS{resnet, 
+ author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},  
+ booktitle={2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},   
+ title={Deep Residual Learning for Image Recognition},   
+ year={2016},  
+ volume={},  
+ number={},  
+ pages={770-778},  
+ doi={10.1109/CVPR.2016.90}
+}
+
+Dota 2 Open AI Five Paper - Contains lots of generally useful information about large scale ML ideas
+- Compute Usage formula taken from here
+@misc{openai2019dota,
+      title={Dota 2 with Large Scale Deep Reinforcement Learning}, 
+      author={OpenAI and : and Christopher Berner and Greg Brockman and Brooke Chan and Vicki Cheung and Przemysław Dębiak and Christy Dennison and David Farhi and Quirin Fischer and Shariq Hashme and Chris Hesse and Rafal Józefowicz and Scott Gray and Catherine Olsson and Jakub Pachocki and Michael Petrov and Henrique P. d. O. Pinto and Jonathan Raiman and Tim Salimans and Jeremy Schlatter and Jonas Schneider and Szymon Sidor and Ilya Sutskever and Jie Tang and Filip Wolski and Susan Zhang},
+      year={2019},
+      eprint={1912.06680},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+
+ZFNet - Improves upon AlexNet and first visualisation of CNNs for image classification models
+Also provides info for diagnosing performance of CNN image classification models
+@misc{zeiler2013visualizing,
+      title={Visualizing and Understanding Convolutional Networks}, 
+      author={Matthew D Zeiler and Rob Fergus},
+      year={2013},
+      eprint={1311.2901},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+Levenshtein Distance (edit-distance between two words)
+@ARTICLE{1966SPhD...10..707L,
+       author = {{Levenshtein}, V.~I.},
+        title = "{Binary Codes Capable of Correcting Deletions, Insertions and Reversals}",
+      journal = {Soviet Physics Doklady},
+         year = 1966,
+        month = feb,
+       volume = {10},
+        pages = {707},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/1966SPhD...10..707L},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+SSI for Speech Restoration (Meta-Review of main SSIs, approaches, to-speech and to-text, biosignals)
+Use this as a central resource to find references for specific SSI issues and to get a good overview of the silent speech literature in general
+@article{ssi_meta_review,
+  author = {Pérez-Córdoba, José and Martín-Doñas, Juan and Gomez, Angel and Gomez-Alanis, Alejandro and Gonzalez Lopez, Jose},
+  year = {2020},
+  month = {09},
+  pages = {177995-178021},
+  title = {Silent Speech Interfaces for Speech Restoration: A Review},
+  volume = {8},
+  journal = {IEEE Access},
+  doi = {10.1109/ACCESS.2020.3026579}
+}
+
+Another potentially useful meta-review of biosignal sensors and DL-based speech recognition
+@Article{s21041399,
+  AUTHOR = {Lee, Wookey and Seong, Jessica Jiwon and Ozlu, Busra and Shim, Bong Sup and Marakhimov, Azizbek and Lee, Suan},
+  TITLE = {Biosignal Sensors and Deep Learning-Based Speech Recognition: A Review},
+  JOURNAL = {Sensors},
+  VOLUME = {21},
+  YEAR = {2021},
+  NUMBER = {4},
+  ARTICLE-NUMBER = {1399},
+  URL = {https://www.mdpi.com/1424-8220/21/4/1399},
+  ISSN = {1424-8220},
+  ABSTRACT = {Voice is one of the essential mechanisms for communicating and expressing one’s intentions as a human being. There are several causes of voice inability, including disease, accident, vocal abuse, medical surgery, ageing, and environmental pollution, and the risk of voice loss continues to increase. Novel approaches should have been developed for speech recognition and production because that would seriously undermine the quality of life and sometimes leads to isolation from society. In this review, we survey mouth interface technologies which are mouth-mounted devices for speech recognition, production, and volitional control, and the corresponding research to develop artificial mouth technologies based on various sensors, including electromyography (EMG), electroencephalography (EEG), electropalatography (EPG), electromagnetic articulography (EMA), permanent magnet articulography (PMA), gyros, images and 3-axial magnetic sensors, especially with deep learning techniques. We especially research various deep learning technologies related to voice recognition, including visual speech recognition, silent speech interface, and analyze its flow, and systematize them into a taxonomy. Finally, we discuss methods to solve the communication problems of people with disabilities in speaking and future research with respect to deep learning components.},
+  DOI = {10.3390/s21041399}
+}
+
 Digital Voicing of Silent Speech
 @misc{gaddy2020digital,
       title={Digital Voicing of Silent Speech}, 
@@ -8,7 +156,10 @@ Digital Voicing of Silent Speech
       primaryClass={eess.AS}
 }
 
-An Improved Model for Voicing Silent Speech
+Improves upon the original paper by:
+- Replacing LSTMs with transformer network
+- Generating time-aligned phoneme info from audio and using it as training signal
+- Replace hand-designed features with convolution features
 @misc{gaddy2021improved,
       title={An Improved Model for Voicing Silent Speech}, 
       author={David Gaddy and Dan Klein},
