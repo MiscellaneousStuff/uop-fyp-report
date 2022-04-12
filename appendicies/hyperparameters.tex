@@ -10,19 +10,19 @@ the individual networks.
 
 {\small\begin{center}
 \captionof{table}{DeepSpeech2 ASR Model Hyperparameters}
-\begin{tabular} { | l | c | c | }
+\begin{tabular} { | l | c | c | c | }
 \hline
-Hyperparameter & Value \\
+Hyperparameter & Description & Value \\
 \hline
-Number of CNN layers & 3 \\
-Number of RNN layers & 5 \\
-Number of classes & Vocabulary size \\
-Number of features & 128 \\
-CNN stride & 2 \\
-Dropout & 0.1 \\
-Initial learning rate & 5e-4 \\
-Batch size & 20 \\
-Epochs & 500 \\
+n\_cnn\_layers & Number of CNN block layers & 3 \\
+n\_rnn\_layers & Number of RNN block layers & 5 \\
+n\_class & Number of model classes & Vocabulary size \\
+n\_feats & Number of CNN block features & 128 \\
+stride & CNN stride value & 2 \\
+dropout & Dropout value & 0.1 \\
+learning\_rate & Initial learning rate & 5e-4 \\
+batch\_size & Examples per single minibatch & 20 \\
+epochs & Number of full dataset training iterations & 500 \\
 \hline
 \end{tabular}
 \end{center}}
