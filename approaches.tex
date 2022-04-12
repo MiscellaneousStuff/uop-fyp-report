@@ -1,0 +1,29 @@
+\chapter{Approaches} \label{chap:approaches}
+
+This chapter will describe the main dataset used for this research, why it was chosen,
+the main EMG signals of interest from the dataset, methods of feature selection and
+visualisation and the machine learning approaches used to transcribe the EMG data
+into a text.
+
+\section{Dataset}
+
+\subsection{Dataset Selection and Justification}
+
+The dataset which is used throughout this research project is the open-source
+surface electromyography silent speech (sEMG silent speech) dataset released
+by David Gaddy along with his paper, Digital Voicing of Silent Speech
+(\cite{gaddy2020digital}).
+The paper describes a novel method of transcribing aligned silent speech data
+directly into speech features along with the largest open-source sEMG silent
+speech dataset.
+
+This dataset was chosen for this research as it is the largest, quality open
+source sEMG silent speech dataset.
+
+\subsection{Feature Selection}
+
+For this research there were two primary ways of selecting features. The first method
+was to use the same feature processing methods described in the original
+(\cite{gaddy2020digital}) paper. The second method was to use a convolutional
+neural network (CNN) architecture to automatically learn features from the
+dataset, in an end-to-end manner.
