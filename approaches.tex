@@ -62,18 +62,20 @@ vocabulary set of recordings during the vocalised condition from the dataset.
 The second dataset from this data comes from
 all of the audio and text transcriptions during the vocalised condition across
 the entire dataset. The three datasets are referred to as
-ASR-LJSpeech, ASR-SilentSpeechVocal-Closed and ASR-SilentSpeechVocal-Full,
+\textit{ASR-LJSpeech}, \textit{ASR-SilentSpeechVocal-Closed} and
+\textit{ASR-SilentSpeechVocal-Full},
 respectively.
 
-The ASR-LJSpeech dataset was chosen as it is a standard open-source dataset
+The \textit{ASR-LJSpeech dataset} was chosen as it is a standard open-source dataset
 used for speech related machine learning tasks. It also has similar, but greater
-quantity of important properties of the 
-to the ASR-SilentSpeechVocal-Full dataset. These include the vocabulary size,
+quantity of important properties than the \textit{ASR-SilentSpeechVocal-Full} dataset.
+These include the vocabulary size,
 average length of recordings and duration of the entire dataset. This intuitively
-means that the DeepSpeech2 ASR model trained on the ASR-LJSpeech dataset should
-have a lower WER rate than trained on the ASR-SilentSpeechVocal-Full dataset.
-Whereas the ASR-SilentSpeechVocal-Closed dataset was chosen because it has
-a far lower duration and vocabulary size than the ASR-SilentSpeechVocal-Full
+means that the DeepSpeech2 ASR model trained on the \textit{ASR-LJSpeech dataset} should
+have a lower WER rate, so better performance, than trained on
+the \textit{ASR-SilentSpeechVocal-Full dataset}.
+Whereas the \textit{ASR-SilentSpeechVocal-Closed} dataset was chosen because it has
+a far lower duration and vocabulary size than the \textit{ASR-SilentSpeechVocal-Full}
 dataset which makes it a lot faster to experiment with as the training time is
 lower.
 
@@ -83,9 +85,16 @@ lower.
 
 The following results table shows the word-error rate for each dataset
 which the DeepSpeech2 model was trained on. Each dataset used a slightly
-different vocabulary. The vocabulary for each is the list of valid characters
+different vocabulary. The vocabulary for each dataset
+is the list of valid characters
 of the text transcriptions which the model considers, any other characters
-are encoded as unknown.
+are encoded as \textless UNK\textgreater. A different vocabulary was chosen for the
+ASR-SilentSpeechVocal-Closed dataset because it contains far more numbers
+than the other datasets and including numbers in it's vocabulary means
+that the transcriptions would be useful, rather than filled with the
+unknown placeholder value.
+
+% ALL OF THESE EXPERIMENTS NEED TO BE RE-RUN AT SOME POINT!
 
 {\small\begin{center}
 \captionof{table}{DeepSpeech2 Audio ASR Baseline Results}
@@ -93,8 +102,9 @@ are encoded as unknown.
 \hline
 Dataset & Encoding Vocabulary & WER \\
 \hline
+ASR-LJSpeech                 & " abcdefghijklmnopqrstuvwxyz-" & 0.55 \\
 ASR-SilentSpeechVocal-Closed & " abcdefghijklmnopqrstuvwxyz0123456789-" & 0.33 \\
-ASR-SilentSpeechVocal-Full & " abcdefghijklmnopqrstuvwxyz-" & 0.45 \\
+ASR-SilentSpeechVocal-Full   & " abcdefghijklmnopqrstuvwxyz-" & 0.45 \\
 \hline
 \end{tabular}
 \end{center}}
