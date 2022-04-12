@@ -38,7 +38,7 @@ implement and is known to have good performance, even on smaller datasets, achie
 a 3.10 WER on the WSJ eval'92 dataset
 (\cite{DS2_original}).
 
-\section{Baseline ASR Testing}
+\section{Baseline Audio ASR Testing}
 
 To get a realistic baseline for the possible performance of the silent
 speech models, standard audio based ASR models were trained on different
@@ -108,3 +108,17 @@ ASR-SilentSpeechVocal-Full   & " abcdefghijklmnopqrstuvwxyz-" & 0.45 \\
 \hline
 \end{tabular}
 \end{center}}
+
+\section{Vocalised EMG ASR Testing}
+
+After training the DeepSpeech2 baseline audio ASR models, experiments
+began on the vocalised EMG condition. This includes all of the utterances
+in the Digital Voicing dataset where the speaker strongly articulated
+what they were trying to say, or in other words, vocalised speech.
+This means that the EMG signal is much stronger compared to the silent
+speech condition. In theory, a model trained and evaluated on the vocalised
+speech condition should show stronger performance than the silent speech
+condition, due to the richer underlying signal. This means that the a dataset
+comprised of purely vocalised utterances should provide a strong maximum
+performance which the purely silent utterances are unlikely to be better
+than.
