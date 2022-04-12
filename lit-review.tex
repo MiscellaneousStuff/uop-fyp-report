@@ -17,8 +17,6 @@ Current sEMG Silent Speech Text Classification Research:
 
 \subsection{Text Classification}
 
-
-
 \subsection{Data Augmentation}
 
 It might be possible to use GANs (Generative Adversarial Networks) or
@@ -34,3 +32,22 @@ to create a model might not be as applicable to this problem).
 Use CapsNet on top of the CNNs to improve the generalisability of the
 detected EEG features (there are papers which show that these are
 feasible).
+
+\section{Connectionist Temporal Classification (CTC)}
+
+For any speech recognition task, a model must know the alignment
+between the input (e.g. audio, EMG features, etc.) and the target
+transcription. On the surface, this makes training any speech
+recognition model difficult.
+
+Without having the alignments between the input and the transcription,
+simpler approaches aren't available to us, such as mapping a single
+character to a fixed number of inputs. This is because people's rates
+of speech vary, regardless of the input modality (e.g. audio, EMG features,
+etc). Another option is to hand-label the alignments between the input
+and the text transcriptions. This would produce a performant model, however,
+hand-labeling the alignments is time consuming, especially for larger datasets.
+
+Connectionist Temporal Classification (CTC) is a method to train a model
+without knowing the alignment between the input and the output and is especially
+well suited to labeled datasets such as speech recognition.
