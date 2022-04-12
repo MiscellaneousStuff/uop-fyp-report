@@ -81,6 +81,25 @@ lower.
 
 \subsection{Implementation}
 
+The final DeepSpeech2 audio ASR model and training code is adapted from
+online simplified examples of the original DeepSpeech2 implementation by Baidu.
+Modern improvements to the model and pre-processing of the data are implemented.
+These include transforming the audio waveforms into mel spectrograms and
+occasionally masking parts of the spectrogram along frequency and time.
+
+This
+helps regularise the model by periodically zeroing out parts of the input.
+This is similar to another regularisation technique often used in training
+neural networks, known as Dropout. The goal is to reduce overfitting by preventing
+complex co-adaptations on training data
+(\cite{pmlr-v28-wan13}).
+
+Another method which is used to greatly increase training speed and increase
+batch size is Automatic Mixed Precision. Deep neural network training has
+normally relied on IEEE single-precision format (fp32), however mixed
+precision allows training with half precision (fp16, or bfloat16) while
+maintaining the accuracy of single precision.
+
 \subsection{Results}
 
 The following results table shows the word-error rate for each dataset
