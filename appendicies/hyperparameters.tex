@@ -1,0 +1,28 @@
+Throughout the course of this research, many different machine learning models were
+trained to evaluate their performance on tasks. During these experiments,
+the hyperparameters of the individual models were tweaked to improve the performance of
+the models on the individual tasks. This section lists the final hyperparameters of
+the individual networks.
+
+\section{DeepSpeech2 ASR Hyperparameters}
+
+% THESE NEED TO BE SET TO THE FINAL TRAINING RUNS VALUES
+
+{\small\begin{center}
+\captionof{table}{DeepSpeech2 ASR Model Hyperparameters}
+\begin{tabular} { | l | c | c | }
+\hline
+Hyperparameter & Value \\
+\hline
+Number of CNN layers & 3 \\
+Number of RNN layers & 5 \\
+Number of classes & Vocabulary size \\
+Number of features & 128 \\
+CNN stride & 2 \\
+Dropout & 0.1 \\
+Initial learning rate & 5e-4 \\
+Batch size & 20 \\
+Epochs & 500 \\
+\hline
+\end{tabular}
+\end{center}}
