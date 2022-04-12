@@ -3,7 +3,7 @@
 This chapter will describe the main dataset used for this research, why it was chosen,
 the main EMG signals of interest from the dataset, methods of feature selection and
 visualisation and the machine learning approaches used to transcribe the EMG data
-into a text.
+into a text transcription.
 
 \section{Dataset}
 
@@ -17,19 +17,8 @@ The paper describes a novel method of transcribing aligned silent speech data
 directly into speech features along with the largest open-source sEMG silent
 speech dataset.
 
-This dataset was chosen for this research as it is the largest, quality open
+This dataset was chosen for this research as it is the largest, high quality open
 source sEMG silent speech dataset.
-
-\subsection{Dataset Slices}
-
-For the experiments, the original dataset was split into two main groups:
-the closed vocabulary slice and the full dataset. The reason for this was
-that performing experiments on the entire dataset was likely to be very
-time consuming so performing experiments on a subset of the entire dataset
-which had a much smaller distribution of words heavily decreased training time
-(as the closed vocab condition only comprises roughly 5\% of the dataset) but
-the dataset still contains a relatively equal distribution of characters within
-the dataset.
 
 \subsection{Feature Selection}
 
@@ -59,6 +48,35 @@ transcriptions should in theory perform better than on the purely vocalised
 EMG data or final silent EMG data and their respective text transcriptions.
 The results of the baseline ASR models is provided below.
 
+\subsection{Datasets}
+
+Three main datasets were chosen for the baseline ASR tests. The first dataset
+was the LJSpeech dataset
+(\cite{ljspeech17})
+which is an open-source dataset primarily used in
+speech synthesis and also speech recognition. The remaining two datasets
+are comprised of the audio and text transcriptions of vocalised
+utterances from the Digital Voicing dataset release (\cite{gaddy2020digital}).
+The first dataset from this data comes from utterances from the closed
+vocabulary set of recordings during the vocalised condition from the dataset.
+The second dataset from this data comes from
+all of the audio and text transcriptions during the vocalised condition across
+the entire dataset. The three datasets are referred to as
+ASR-LJSpeech, ASR-SilentSpeechVocal-Closed and ASR-SilentSpeechVocal-Full,
+respectively.
+
+The ASR-LJSpeech dataset was chosen as it is a standard open-source dataset
+used for speech related machine learning tasks. It also has similar, but greater
+quantity of important properties of the 
+to the ASR-SilentSpeechVocal-Full dataset. These include the vocabulary size,
+average length of recordings and duration of the entire dataset. This intuitively
+means that the DeepSpeech2 ASR model trained on the ASR-LJSpeech dataset should
+have a lower WER rate than trained on the ASR-SilentSpeechVocal-Full dataset.
+Whereas the ASR-SilentSpeechVocal-Closed dataset was chosen because it has
+a far lower duration and vocabulary size than the ASR-SilentSpeechVocal-Full
+dataset which makes it a lot faster to experiment with as the training time is
+lower.
+
 \subsection{Implementation}
 
 \subsection{Results}
@@ -69,14 +87,14 @@ different vocabulary. The vocabulary for each is the list of valid characters
 of the text transcriptions which the model considers, any other characters
 are encoded as unknown.
 
-\begin{center}
+{\small\begin{center}
 \captionof{table}{DeepSpeech2 Audio ASR Baseline Results}
 \begin{tabular} { | l | c | c | }
 \hline
-Dataset Slice & Vocabulary & WER \\
+Dataset & Encoding Vocabulary & WER \\
 \hline
-Closed Vocab & " abcdefghijklmnopqrstuvwxyz0123456789-" & 0.33 \\
-Full Vocalised Dataset & " abcdefghijklmnopqrstuvwxyz-" & 0.45 \\
+ASR-SilentSpeechVocal-Closed & " abcdefghijklmnopqrstuvwxyz0123456789-" & 0.33 \\
+ASR-SilentSpeechVocal-Full & " abcdefghijklmnopqrstuvwxyz-" & 0.45 \\
 \hline
 \end{tabular}
-\end{center}
+\end{center}}
