@@ -49,7 +49,7 @@ implement and is known to have good performance, even on smaller datasets, achie
 a 3.10 WER on the WSJ eval'92 dataset
 (\cite{DS2_original}).
 
-\section{Baseline ASR Test Results}
+\section{Baseline ASR Testing}
 
 To get a realistic baseline for the possible performance of the silent
 speech models, standard audio based ASR models were trained on different
@@ -58,6 +58,16 @@ The intuition for this was that an ASR model trained on the audio and text
 transcriptions should in theory perform better than on the purely vocalised
 EMG data and the final silent EMG data. The results of the baseline ASR models
 is provided below.
+
+\subsection{Implementation}
+
+\subsection{Results}
+
+The following results table shows the word-error rate for each dataset
+which the DeepSpeech2 model was trained on. Each dataset used a slightly
+different vocabulary. The vocabulary for each is the list of valid characters
+of the text transcriptions which the model considers, any other characters
+are encoded as unknown.
 
 \begin{center}
 \captionof{table}{DeepSpeech2 Audio ASR Baseline Results}
