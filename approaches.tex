@@ -20,6 +20,17 @@ speech dataset.
 This dataset was chosen for this research as it is the largest, quality open
 source sEMG silent speech dataset.
 
+\subsection{Dataset Slices}
+
+For the experiments, the original dataset was split into two main groups:
+the closed vocabulary slice and the full dataset. The reason for this was
+that performing experiments on the entire dataset was likely to be very
+time consuming so performing experiments on a subset of the entire dataset
+which had a much smaller distribution of words heavily decreased training time
+(as the closed vocab condition only comprises roughly 5\% of the dataset) but
+the dataset still contains a relatively equal distribution of characters within
+the dataset.
+
 \subsection{Feature Selection}
 
 For this research there were two primary ways of selecting features. The first method
@@ -27,3 +38,15 @@ was to use the same feature processing methods described in the original
 (\cite{gaddy2020digital}) paper. The second method was to use a convolutional
 neural network (CNN) architecture to automatically learn features from the
 dataset, in an end-to-end manner.
+
+\section{Models}
+
+\subsection{DeepSpeech2 Model}
+
+The DeepSpeech2 model was the initial automatic speech recognition (ASR) machine
+learning model which was considered for experimentation as it is relatively simple to
+implement and is known to have good performance, even on smaller datasets, achieving
+a 3.10 WER on the WSJ eval'92 dataset
+(\cite{DS2_original}).
+
+\section{Baseline ASR Tests}
