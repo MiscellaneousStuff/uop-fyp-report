@@ -141,3 +141,20 @@ condition, due to the richer underlying signal. This means that the a dataset
 comprised of purely vocalised utterances should provide a strong maximum
 performance which the purely silent utterances are unlikely to be better
 than.
+
+\subsection{Implementation}
+
+The first attempt at porting the DeepSpeech2 model from the audio ASR
+condition to the vocalised EMG ASR condition involved removing the initial
+CNN layers from the DeepSpeech2 model, as it was easier to just provide
+the hand-crafted features from the Digital Voicing paper at first
+(\cite{gaddy2020digital}). This is because it is harder to diagnose an
+end-to-end deep learning model as it's not easy to visualise what the
+model is doing. Then a dataset of just one sample of vocalised EMG
+data from the closed vocabulary condition was setup as a training
+and testing dataset. This was done to see whether or not the model
+could overfit to the data. This is a standard practice done, especially
+when experimenting with novel neural network architectures or domains,
+because if a model cannot overfit to a single example in a dataset,
+it has no chance of generalising across multiple examples and producing
+useful behaviour.
