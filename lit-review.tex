@@ -1,4 +1,11 @@
 \iffalse
+Mark Scheme:
+- Extensive Research
+- Understanding of complex subject matter
+- Identifies flaws, gaps or inconsistencies in extant knowledge
+\fi
+
+\iffalse
 
 Mu-Law compression:
 - compresses audio signal into discrete bins whilst preserving dynamic range
@@ -9,6 +16,40 @@ Current sEMG Silent Speech Text Classification Research:
 \fi
 
 \chapter{Literature Review} \label{chap:lit-review}
+
+\section{Key Terms - Silent Speech}
+
+\begin{itemize}
+  \item \emph{Word Error Rate (WER):}
+  Metric used in speech recognition systems which accounts for differences in length of
+  a recognised word sequence and a reference word sequence. WER is derived from
+  Levenshtein distance  which is a string metric for measuring the difference between two
+  sequences. The Levenshtein distance between two words is essentially the minimum number of
+  single-character edits (including insertions, deletions or substitutions) required to
+  change one word into another. Another term for it is the "edit distance".
+  \[
+    WER
+    = \dfrac{S + D + I}{N}
+    = \dfrac{S + D + I}{S + D + C}
+  \]
+  Where each term means:
+  S: Number of substitutions\\
+  D: Number of deletions\\
+  I: Number of insertions\\
+  C: Number of correct words\\
+  N: Number of words in the reference (N = S+D+C)
+  (\cite{1966SPhD...10..707L})
+  \item \emph{Mel-Scale:}
+  Perceptual scale of pitches judged by listeners to be equal in distance from one another.
+  \[ m = 2595 \log_{10} \left(1 + \dfrac{f}{700}\right) \]
+  \item \emph{Silent Speech Interface (SSI):}
+  Fill in SSI definition here
+  \item \emph{Mel-Frequency Cepstrum Co-efficient (MFCCs):}
+  Representation of the short-term power spectrum of a sound, based on a linear cosine transform
+  \item \emph{Surface Electromyography (sEMG):}
+  Non-invasive, computer-based technique that records the electrical impulses placed on the surface
+  of the skin overlying the nerve at rest (i.e. static) and during activity (i.e. dynamic).
+\end{itemize}
 
 \section{Silent Speech Interfaces for Speech Restoration: A Review}
 
