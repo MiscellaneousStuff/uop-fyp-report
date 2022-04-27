@@ -7,6 +7,8 @@ into a text transcription.
 
 \section{Fine Tuning Speech Recognition on Model Predictions}
 
+\subsection{Closed Vocabulary Dataset}
+
 The intuition behind fine tuning a speech recognition model on the
 predicted mel spectrograms predicted by the transduction model comes
 from the literature for speech recogntion. Typical speech recognition models
@@ -20,18 +22,23 @@ will always produce audio outputs with artefacts because of the final vocoder la
 % (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
 {\small\begin{center}
 \captionof{table}{DeepSpeech2 Silent Speech ASR Results}
-\begin{tabular} { | l | c | c | }
+\begin{tabular} {  l  c  c  }
 \hline
-Dataset & CER & WER \\
+\textbf{Dataset} & \textbf{CER} & \textbf{WER} \\
 \hline
 Ground Truth (GT) & 87.10 & 100.50 \\
 Voiced & 51.27 & 87.33 \\
 Silent & 38.80 & 78.10 \\
-Silent, Voiced & 35.26 & 75.33 \\
-Silent, Voiced, GT & 35.72 & 70.83 \\
+Silent, Voiced & \textbf{35.26} & 75.33 \\
+\hline
+Silent, Voiced, GT & 35.72 & \textbf{70.83} \\
 \hline
 \end{tabular}
 \end{center}}
+
+\subsection{Open Vocabulary (Parallel-Only) Dataset}
+
+
 
 \iffalse
 
