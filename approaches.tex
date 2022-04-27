@@ -40,7 +40,7 @@ from an already trained transduction model.
 
 % (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
 {\small\begin{center}
-\captionof{table}{DeepSpeech2 Silent Speech ASR Results}
+\captionof{table}{DeepSpeech2 Closed Vocab Finetuned Results}
 \begin{tabular} {  l  c  c  }
 \hline
 \textbf{Dataset} & \textbf{CER} & \textbf{WER} \\
@@ -62,7 +62,26 @@ be improved upon a lot more.
 
 \subsection{Open Vocabulary (Parallel-Only) Dataset}
 
+The next dataset used is the parallel voiced and silent EMG data. This is used because
+it's smaller than using the entire open vocabulary condition dataset in one go which
+makes training the individual ASR models and the transduction model faster.
 
+% (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
+{\small\begin{center}
+\captionof{table}{DeepSpeech2 Open Vocabulary Parallel Finetuned Results}
+\begin{tabular} {  l  c  c  }
+\hline
+\textbf{Dataset} & \textbf{CER} & \textbf{WER} \\
+\hline
+Ground Truth (GT) & 28.59 & 64.44 \\
+Voiced & 0 & 0 \\
+Silent & 0 & 0 \\
+Silent, Voiced & 0 & 0 \\
+\hline
+Silent, Voiced, GT & 0 & 0 \\
+\hline
+\end{tabular}
+\end{center}}
 
 \iffalse
 
