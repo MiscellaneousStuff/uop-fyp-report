@@ -12,7 +12,6 @@ Current sEMG Silent Speech Text Classification Research:
 
 \section{Silent Speech Interfaces for Speech Restoration: A Review}
 
-
 \section{Proposed Directions for Research}
 
 \subsection{Text Classification}
@@ -22,6 +21,12 @@ Current sEMG Silent Speech Text Classification Research:
 It might be possible to use GANs (Generative Adversarial Networks) or
 VAEs (Variational Auto Encoders) to create a model which can generate
 more data samples.
+
+One possible data augmentation method for sEMG based silent speech is to
+reverse a SOTA transduction model. Existing transduction models for
+EMG to speech use either EMG features or raw EMG data and transduce
+it into speech features (typically mel spectrograms or MFCCs). However,
+it may be possible to predict the EMG data from the mel spectrograms.
 
 \subsection{Improving Existing Model}
 
