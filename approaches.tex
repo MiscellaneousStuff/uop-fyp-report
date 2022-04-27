@@ -5,7 +5,17 @@ the main EMG signals of interest from the dataset, methods of feature selection 
 visualisation and the machine learning approaches used to transcribe the EMG data
 into a text transcription.
 
-\section{Naive DeepSpeech2 ASR}
+\section{Fine Tuning Speech Recognition on Model Predictions}
+
+The intuition behind fine tuning a speech recognition model on the
+predicted mel spectrograms predicted by the transduction model comes
+from the literature for speech recogntion. Typical speech recognition models
+suffer from a loss of accuracy when they are only trained on clean audio data
+and then evaluated on a noisy dataset.
+
+This issue is also reflected in the transduction task. The state-of-the-art
+transduction model within the Improved Voicing (\cite{gaddy2021improved}) paper
+will always produce audio outputs with artefacts because of the final vocoder layer.
 
 % (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
 {\small\begin{center}
@@ -15,8 +25,8 @@ into a text transcription.
 Dataset & CER & WER \\
 \hline
 Ground Truth (GT) & 87.10 & 100.50 \\
-Silent & 38.80 & 78.10 \\
 Voiced & 51.27 & 87.33 \\
+Silent & 38.80 & 78.10 \\
 Silent, Voiced & 35.26 & 75.33 \\
 Silent, Voiced, GT & 35.72 & 70.83 \\
 \hline
