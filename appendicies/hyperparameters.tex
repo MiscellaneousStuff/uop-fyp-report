@@ -26,3 +26,32 @@ epochs & Number of full dataset training iterations & 500 \\
 \hline
 \end{tabular}
 \end{center}}
+
+\section{Silent Speech Transduction Hyperparameters}
+
+\subsection{Initial Fine Tuning Experiments}
+
+The hyperparameters for the transduction model were reduced from the original
+SOTA model due to hardware constraints. In the Additional Reproducability
+Information of the Improved Voicing (\cite{gaddy2021improved}) paper, they state
+that to train the full model takes roughly 12 hours on an Nvidia Quadro RTX 6000
+which has 24GB VRAM. The GPU I was experimenting on only had 8GB VRAM which meant
+that I had to halve the number of transformer layers and reduce the hidden dimension
+size.
+
+{\small\begin{center}
+\captionof{table}{SOTA Silent Speech Transduction Model}
+\begin{tabular} { | l | c | c | c | }
+\hline
+Hyperparameter & Description & Value \\
+\hline
+n\_transformer\_layers & Number of Transformer Encoder layers & 3 \\
+n\_class & Number of model classes & Vocabulary size \\
+stride & ResNet Block stride value & 1 \\
+learning\_rate & Initial learning rate & 1e-3 \\
+batch\_size & Examples per single minibatch & 32 \\
+epochs & Number of full dataset training iterations & 80 \\
+model\_size & Size of hidden dimension for transformer encoder & 512 \\
+\hline
+\end{tabular}
+\end{center}}
