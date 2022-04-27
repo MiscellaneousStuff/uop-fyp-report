@@ -38,6 +38,11 @@ The closed vocabulary dataset is the first dataset used to determine how much be
 a speech recognition model can be improved by training on the predicted mel spectrograms
 from an already trained transduction model.
 
+The WER of the closed vocabulary ASR model trained only on the training dataset
+of the closed vocab dataset is 37\%. This means that we would not expect the WER
+of the model when it's evaluated on transduced examples to perform better than
+the ground truth word-error rate.
+
 % (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
 {\small\begin{center}
 \captionof{table}{DeepSpeech2 Closed Vocab Finetuned Results}
@@ -73,7 +78,7 @@ makes training the individual ASR models and the transduction model faster.
 \hline
 \textbf{Dataset} & \textbf{CER} & \textbf{WER} \\
 \hline
-Ground Truth (GT) & 28.59 & 64.44 \\
+Ground Truth (GT) & 0 & 0 \\
 Voiced & 0 & 0 \\
 Silent & 0 & 0 \\
 Silent, Voiced & 0 & 0 \\
