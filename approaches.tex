@@ -5,6 +5,26 @@ the main EMG signals of interest from the dataset, methods of feature selection 
 visualisation and the machine learning approaches used to transcribe the EMG data
 into a text transcription.
 
+\section{Naive DeepSpeech2 ASR}
+
+% (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
+{\small\begin{center}
+\captionof{table}{DeepSpeech2 Silent Speech ASR Results}
+\begin{tabular} { | l | c | c | }
+\hline
+Dataset & CER & WER \\
+\hline
+Ground Truth (GT) & 87.10 & 100.50 \\
+Silent & 38.80 & 78.10 \\
+Voiced & 51.27 & 87.33 \\
+Silent, Voiced & 35.26 & 75.33 \\
+Silent, Voiced, GT & 35.72 & 70.83 \\
+\hline
+\end{tabular}
+\end{center}}
+
+\iffalse
+
 \section{Dataset}
 
 \subsection{Dataset Selection and Justification}
@@ -158,3 +178,5 @@ when experimenting with novel neural network architectures or domains,
 because if a model cannot overfit to a single example in a dataset,
 it has no chance of generalising across multiple examples and producing
 useful behaviour. This is referred to as the sanity test from here on.
+
+\fi
