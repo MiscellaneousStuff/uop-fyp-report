@@ -18,8 +18,6 @@ as do most SOTA vocoders.
 
 \section{Fine Tuning Speech Recognition on Model Predictions}
 
-\subsection{Closed Vocabulary Dataset}
-
 The intuition behind fine tuning a speech recognition model on the
 predicted mel spectrograms predicted by the transduction model comes
 from the literature for speech recogntion. Typical speech recognition models
@@ -29,6 +27,16 @@ and then evaluated on a noisy dataset.
 This issue is also reflected in the transduction task. The state-of-the-art
 transduction model within the Improved Voicing (\cite{gaddy2021improved}) paper
 will always produce audio outputs with artefacts because of the final vocoder layer.
+
+This becomes problematic if you want to use the transduction model as a basis for a
+speech recognition system. This is because most pre-trained speech recognition systems
+are trained on clean audio datasets.
+
+\subsection{Closed Vocabulary Dataset}
+
+The closed vocabulary dataset is the first dataset used to determine how much better
+a speech recognition model can be improved by training on the predicted mel spectrograms
+from an already trained transduction model.
 
 % (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
 {\small\begin{center}
