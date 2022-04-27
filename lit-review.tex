@@ -51,11 +51,59 @@ Current sEMG Silent Speech Text Classification Research:
   of the skin overlying the nerve at rest (i.e. static) and during activity (i.e. dynamic).
 \end{itemize}
 
+\section{Machine Learning Background}
+
+\subsection{Digital Voicing of Silent Speech}
+
+\subsubsection{Original Paper}
+
+Paper from University of California, Berkely students David Gaddy and Dan Klein.
+The paper digitally voices silent speech from silently mouthed words which are
+converted to audiblespeech based on (EMG) sensor measurements which capture muscle movements.
+Other papers have used this approach to FILL REST OF THIS WITH REFERENCED TO SPEECH AND TO TEXT
+FROM DIGITAL VOICING, MIT ALTER EGO 2018 SUMMARISED AND 60 PG VERSION AND OTHER SOURCES.
+
+Paper creates ML system to convert sEMG facial measurements that capture muscle impulses into synthesised speech.
+First paper to train from EMG collected during silently articulated speech.
+Introduces method of training on silent EMG by transferring audio targets from vocalised to to silent signals.
+Their method improves intelligibility of audio generated from silent EMG compared to baseline which only uses vocalised data.
+Decreased transcription WER from 64\% to 4\% in closed vocab condition.
+Decreased transcription WER from 88\% to 68\% on open vocab condition.
+Open-sourcing of silent and vocalised facial EMG measurements, accompanying training audio.
+(\cite{gaddy2020digital})
+
+\subsubsection{An Improved Model for Voicing Silent Speech}
+
+Evolution of Digital Voicing paper which improves model performance compared to previous work.
+Model learns its own input features directly from EMG signals instead of hand-crafted features in prior work.
+New model uses convolutional layers to extract features from the signals.
+Transformer-encoder layers used to propagate signals across longer distances instead of bi-directional LSTM layers.
+Additional signal introduced during learning by introducing auxillary task of predicting phoneme labels in addition to predicting speech audio features.
+On open vocab intelligbility evaluation, new model improves SOTA by 25.8\%.
+(\cite{gaddy2021improved})
+
+Establishes new SOTA performance via 3 main improvements:
+
+\begin{itemize}
+  \item \emph{Replace LSTMs with Transformer-Encoder:}
+  Model bi-directional triple stacked 1024-unit LSTM layer replaced with 6 transformer-encoder
+  layer to predict EEG features found using CNN over 1 second to predict speech along with
+  phoneme loss signal.
+  Ablation shows WER go from 42.2\% to 45.2\% when this is removed.
+  \item \emph{Introduce Phoneme Loss:}
+  Introduced auxillary phoneme prediction task to as additional 
+  output of self-attention transformer-encoder. This signal is used to improve the performance
+  of the network by learning to predict the phoneme of the speech which is being detected.
+  Ablation shows WER go from 42.2\% to 51.7\% when this is removed.
+  \item \emph{Replace hand-designed features with convolution features:}
+  Uses CNN block based on ResNet to extract features from EMG signals which are end-to-end
+  trainable instead of using hand-crafted features to representational power of the network.
+  Ablation shows WER go from 42.2\% to 46\% when this is removed.
+\end{itemize}
+
+(\cite{digital_voicing_2021})
+
 \section{Silent Speech Interfaces for Speech Restoration: A Review}
-
-\section{Word-Error Rate}
-
-
 
 \section{Proposed Directions for Research}
 
