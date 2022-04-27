@@ -5,6 +5,17 @@ the main EMG signals of interest from the dataset, methods of feature selection 
 visualisation and the machine learning approaches used to transcribe the EMG data
 into a text transcription.
 
+\section{Data Preprocessing}
+
+\subsection{Audio Speech Features}
+
+For the purposes of the fine tuning experiments, the ground truth audio files
+are preprocessed into mel spectrograms rather than MFCCs as in the original two papers
+(\cite{gaddy2020digital}, \cite{gaddy2021improved}). The reason for this is because 
+mel spectrograms contain more raw data than MFCCs which makes them more appropriate for
+speech recognition and also the vocoder used for this paper uses mel spectrograms as the input,
+as do most SOTA vocoders.
+
 \section{Fine Tuning Speech Recognition on Model Predictions}
 
 \subsection{Closed Vocabulary Dataset}
