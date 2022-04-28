@@ -95,6 +95,24 @@ Silent, Voiced, GT & \textbf{42.08} & \textbf{81.70} \\
 \end{tabular}
 \end{center}}
 
+Due to the results of the closed vocabulary training condition and time constraints,
+training on the voiced portion of the open vocabulary paralell mel spectrogram
+predictions wasn't conducted.
+
+There is one interesting difference in this training run compared to the closed
+vocabulary dataset. Training on the silent EMG and voiced EMG conditions together
+reduces performance. This may be because training on both together was better
+on training on just the silent EMG signals for the closed vocabulary dataset
+because the silent EMG dataset only contained 400 data samples so doubling
+the dataset to 800 data samples, even though the vocalised samples are sub-optimal,
+is better. However, here the silent EMG dataset is comprised of 2,778 data samples
+which means that the difference between the silent EMG and voiced EMG predicted
+mel spectrograms is reducing the performance of the ASR model more than having a
+larger overall dataset is beneficial.
+
+Because of this finding, an additional experiment was conduced fine-tuning the
+ground truth trained model on the silent EMG data only.
+
 \iffalse
 
 \section{Dataset}
