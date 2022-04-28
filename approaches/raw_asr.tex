@@ -4,11 +4,9 @@
 
 \section{Training an ASR System on Raw Voiced EMG Signals}
 
-\section{Justification}
+\subsection{Related Work}
 
-The justification for this line of research is that previous attempts in
-the literature have tried to classify silent EMG signals directly into text.
-For instance, researchers from MIT (\cite{alter_ego_ctc})
+Researchers from MIT (\cite{alter_ego_ctc})
 working on a dataset recorded using the MIT AlterEgo system
 (\cite{Kapur2018HumanmachineCC}) trained
 a 20-word vocabulary, 200-sentence dataset for speech recognition. They
@@ -16,3 +14,14 @@ achieved a 14.8\% WER by training the model on a CNN with CTC model using
 greedy decoding (choosing the word with the highest probability at each time
 step). When they applied a language model on the word predictions the WER
 is further reduced to 10.7\%.
+
+However, this research used a relatively small vocabulary and utterance 
+size compared to available open-source silent speech datasets. This means
+that the method may not actually scale to larger datasets which means that
+exploring the viability of classifying text directly from EMG signals is
+a useful line of research.
+
+\subsection{Viability Experiment}
+
+An experiment was devised to determine how well a model could predict
+text from a related EMG recording.
