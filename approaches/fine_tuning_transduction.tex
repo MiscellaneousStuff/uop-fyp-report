@@ -1,18 +1,20 @@
 \section{Fine Tuning Speech Recognition on Model Predictions}
 
 The intuition behind fine tuning a speech recognition model on the
-predicted mel spectrograms predicted by the transduction model comes
-from the literature for speech recogntion. Typical speech recognition models
+predicted mel spectrograms from the transduction model comes
+from the literature for speech recognition. Typical speech recognition models
 suffer from a loss of accuracy when they are only trained on clean audio data
 and then evaluated on a noisy dataset (\cite{DS2_original}).
 
 This issue is also reflected in the transduction task. The state-of-the-art
 transduction model within the Improved Voicing (\cite{gaddy2021improved}) paper
-will always produce audio outputs with artefacts because of the final vocoder layer.
+will always produce audio outputs with artefacts because of the final vocoder layer
+and because the mel spectrograms will always at best be an approximation.
 
 This becomes problematic if you want to use the transduction model as a basis for a
-speech recognition system. This is because most pre-trained speech recognition systems
-are trained on clean audio datasets.
+speech recognition system as most pre-trained speech recognition systems
+are trained on clean audio datasets which means that naively applying a speech
+recognition system on top of the transduction model will result in reduced performance.
 
 \subsection{Closed Vocabulary Dataset}
 
