@@ -65,6 +65,10 @@ in the decoder. DeepSpeech2 is also not the SOTA model for speech recognition
 which also reduces the performance. This means that the best WER of 70.83 could
 be improved upon a lot more.
 
+For the silent, voiced, GT condition, the model is pre-trained on the
+ground truth model and and then fine-tuned on the predictions of the
+silent and voiced utterances.
+
 \subsection{Open Vocabulary (Parallel-Only) Dataset}
 
 The next dataset used is the parallel voiced and silent EMG data. This is used because
