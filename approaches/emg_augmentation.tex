@@ -4,7 +4,7 @@ One approach for improving the performance of any machine learning model
 is to synthesize more data. This is particularly useful if the original
 dataset is small and there are methods to synthesize more data.
 
-\section{Related Work}
+\subsection{Related Work}
 
 Previous approaches have used various deep learning techniques to synthesize
 more EMG data to train EMG deep learning models. One approach
@@ -13,3 +13,8 @@ to synthesis EMG signals for simple action recognition such as grasp and
 release (actions common to robotic prosthetics and manipulators). The inclusion
 of synthesized EMG data during the training process improved the overall
 gesture recognition accuracy from 68.29\% to 89.5\%.
+
+Another related paper from the same author experiments with LSTM and GPT-2
+models for synthesizing more speech for a speaker recogntion task. The
+best model found by the authors for this task was a
+3-layer, 128 hidden dimension LSTM network (\cite{speech_synth_lstm}).
