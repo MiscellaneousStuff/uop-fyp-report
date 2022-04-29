@@ -1,10 +1,28 @@
 \section{Fine Tuning Speech Recognition on Model Predictions}
 
+\subsection{Related Work}
+
 The intuition behind fine tuning a speech recognition model on the
 predicted mel spectrograms from the transduction model comes
 from the literature for speech recognition. Typical speech recognition models
 suffer from a loss of accuracy when they are only trained on clean audio data
-and then evaluated on a noisy dataset (\cite{DS2_original}).
+and then evaluated on a noisy dataset (\cite{DS2_original}). For example,
+in the DeepSpeech2 paper the authors trained their speech recongition
+model on different fractions of a dataset.
+
+Their results showed that the
+performance of a model trained on a clean dataset when evaluated on a dataset
+of clean audio compared to noisy audio showed a larger gap when trained on less
+data. When the authors trained their model on 1\% of the entire dataset (120 hours),
+the WER for the clean dataset was 29.23 whereas for the noisy dataset it was 50.97\%.
+However when they trained on the full dataset (12,000 hours), the clean audio
+WER was 8.46\% compared to 13.59\% for the noisy dataset.
+
+The results from their paper show a strong relationship between datasize and
+affect on evaluation performance on a noisy dataset. For this reason, this paper
+researches the affect of providing predicted speech from the SOTA silent speech
+transduction model to a speech recogntion model to improve it's performance for
+speech recognition and speech synthesis (\cite{DS2_original}).
 
 This issue is also reflected in the transduction task. The state-of-the-art
 transduction model within the Improved Voicing (\cite{gaddy2021improved}) paper
