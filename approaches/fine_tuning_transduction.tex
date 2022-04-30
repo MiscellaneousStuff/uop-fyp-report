@@ -34,6 +34,9 @@ speech recognition system as most pre-trained speech recognition systems
 are trained on clean audio datasets which means that naively applying a speech
 recognition system on top of the transduction model will result in reduced performance.
 
+However this also opens up a new possibility, use the error correcting properties
+of speech recognition systems to improve the synthesis of speech.
+
 \subsection{Closed Vocabulary Dataset}
 
 The closed vocabulary dataset is the first dataset used to determine how much better
@@ -148,7 +151,7 @@ Voiced & -- & - \\
 Silent & - & - \\
 Silent, Voiced & - & - \\
 \hline
-Silent, Voiced, GT & \textbf{31.64} & \textbf{68.27} \\
+Silent, Voiced, GT & \textbf{32.48} & \textbf{68.26} \\
 \hline
 \end{tabular}
 \end{center}}
