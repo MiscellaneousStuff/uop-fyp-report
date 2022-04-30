@@ -128,7 +128,14 @@ larger overall dataset is beneficial.
 \subsection{Open Vocabulary Full (Parallel and Non-Parallel) Dataset}
 
 This dataset is the full entire dataset, not including the closed vocabulary
-dataset.
+dataset. The experiments for this dataset include the same experiments for
+the previous two datasets. However, extra experiments are added for the additional
+non-parallel vocal EMG mel spectrogram predictions. The paralell silent and voiced
+mel spectrogram predictions are included here to show how predicted speech features
+from a model trained with more data improve the predictions of the same dataset.
+This has the effect of making the predicted mel spectrograms closer to the ground
+truth mel spectrograms which means the model is better able to classify the text
+as the dataset for the entire training regime is closer to the same underyling distribution.
 
 {\small\begin{center}
 \captionof{table}{DeepSpeech2 Open Vocabulary Full Dataset Finetuned Results}
