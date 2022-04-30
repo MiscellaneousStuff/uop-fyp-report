@@ -106,7 +106,8 @@ Establishes new SOTA performance via 3 main improvements:
   \item \emph{Introduce Phoneme Loss:}
   Introduced auxillary phoneme prediction task to as additional 
   output of self-attention transformer-encoder. This signal is used to improve the performance
-  of the network by learning to predict the phoneme of the speech which is being detected.
+  of the network by learning to predict the phoneme of the speech which is being detected and
+  also regularises training.
   Ablation shows WER go from 42.2\% to 51.7\% when this is removed.
   \item \emph{Replace hand-designed features with convolution features:}
   Uses CNN block based on ResNet to extract features from EMG signals which are end-to-end
