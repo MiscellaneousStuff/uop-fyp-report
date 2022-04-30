@@ -105,7 +105,7 @@ Silent, Voiced & 42.11 & 85.30 \\
 Voiced, GT & 43.06 & 84.65 \\
 Silent, GT & 41.24 & 83.97 \\
 \hline
-Silent, Voiced, GT & \textbf{40.67} & \textbf{79.79} \\
+Silent, Voiced, GT & \textbf{41.02} & \textbf{81.69} \\
 \hline
 \end{tabular}
 \end{center}}
@@ -124,3 +124,24 @@ is better. However, here the silent EMG dataset is comprised of 2,778 data sampl
 which means that the difference between the silent EMG and voiced EMG predicted
 mel spectrograms is reducing the performance of the ASR model more than having a
 larger overall dataset is beneficial.
+
+\subsection{Open Vocabulary Full (Parallel and Non-Parallel) Dataset}
+
+This dataset is the full entire dataset, not including the closed vocabulary
+dataset.
+
+{\small\begin{center}
+\captionof{table}{DeepSpeech2 Open Vocabulary Full Dataset Finetuned Results}
+\begin{tabular} {  l  c  c  }
+\hline
+\textbf{Dataset} & \textbf{CER} & \textbf{WER} \\
+\hline
+Ground Truth (GT) & - & - \\
+Voiced & -- & - \\
+Silent & - & - \\
+Silent, Voiced & - & - \\
+\hline
+Silent, Voiced, GT & \textbf{31.64} & \textbf{68.27} \\
+\hline
+\end{tabular}
+\end{center}}
