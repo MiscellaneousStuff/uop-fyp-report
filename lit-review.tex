@@ -135,11 +135,36 @@ EMG to speech use either EMG features or raw EMG data and transduce
 it into speech features (typically mel spectrograms or MFCCs). However,
 it may be possible to predict the EMG data from the mel spectrograms.
 
-\subsection{Improving Existing Model}
+\subsection{Improving Existing Models}
 
-Hopefully we can put something about learning regularisation
-by putting in something here about an auxillary task of predicting
-the vocalised EMG input regardless of input (voiced EMG or silent EMG).
+\subsubsection{Model Improvements}
+
+Recently there has been more research into silent speech models which
+can directly produce text from muscle activity. One paper introduces
+a sequence-to-sequence voice reconstruction model and training regime
+called \textit{SSRNet} to address what they call the sEMG2V problem
+in a tonal language.
+
+combines
+multiple methods into one to achieve strong performance in synthesizing
+speech in Mandarin Chinese from EMG signals. The authors of this paper
+propose a complex architecture, where the model is based on the
+FastSpeech (\cite{fastspeech}) neural network architecture.
+
+The FastSpeech
+neural network architecture is to convert text, it it's phonemic
+representation into mel spectrograms. Compared to other speech
+synthesis models, FastSpeech includes novel neural network components.
+These include a Feed-Forward Transformer, FFT Block, Length Regulator
+and Duration Predictor. The purpose of these neural network blocks
+is to improve the abiltiy of the model to correctly predict the duration
+of a phoneme. This is particularly important because for text to speech
+models, it is difficult to determine the alignment of the inputs to
+the outputs as the only information which is provided is text, which
+does not contain timing information.
+
+The authors of the 
+
 
 \section{Connectionist Temporal Classification (CTC)}
 
