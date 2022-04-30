@@ -32,7 +32,7 @@ Current sEMG Silent Speech Text Classification Research:
     = \dfrac{S + D + I}{N}
     = \dfrac{S + D + I}{S + D + C}
   \]
-  Where each term means:
+  Where each term means:\\
   S: Number of substitutions\\
   D: Number of deletions\\
   I: Number of insertions\\
@@ -69,16 +69,19 @@ Current sEMG Silent Speech Text Classification Research:
 
 Paper from University of California, Berkely students David Gaddy and Dan Klein.
 The paper digitally voices silent speech from silently mouthed words which are
-converted to audible speech based on (EMG) sensor measurements which capture muscle movements.
+converted to audible speech based on EMG sensor measurements which capture muscle movements.
+
+\iffalse
 Other papers have used this approach to FILL REST OF THIS WITH REFERENCED TO SPEECH AND TO TEXT
 FROM DIGITAL VOICING, MIT ALTER EGO 2018 SUMMARISED AND 60 PG VERSION AND OTHER SOURCES.
+\fi
 
 Paper creates ML system to convert sEMG facial measurements that capture muscle impulses into synthesised speech.
 First paper to train from EMG collected during silently articulated speech.
 Introduces method of training on silent EMG by transferring audio targets from vocalised to to silent signals.
 Their method improves intelligibility of audio generated from silent EMG compared to baseline which only uses vocalised data.
-Decreased transcription WER from 64\% to 4\% in closed vocab condition.
-Decreased transcription WER from 88\% to 68\% on open vocab condition.
+Decreased transcription WER from 64\% to 4\% in closed vocabulary condition.
+Decreased transcription WER from 88\% to 68\% on open vocabulary condition.
 Open-sourcing of silent and vocalised facial EMG measurements, accompanying training audio.
 (\cite{gaddy2020digital})
 
