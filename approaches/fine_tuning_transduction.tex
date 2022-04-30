@@ -140,13 +140,16 @@ This has the effect of making the predicted mel spectrograms closer to the groun
 truth mel spectrograms which means the model is better able to classify the text
 as the dataset for the entire training regime is closer to the same underyling distribution.
 
+The WER for the ground truth model evaluted on the audio is 45\%. This means that we wouldn'\t
+expect the model to have a lower WER than this value.
+
 {\small\begin{center}
 \captionof{table}{DeepSpeech2 Open Vocabulary Full Dataset Finetuned Results}
 \begin{tabular} {  l  c  c  }
 \hline
 \textbf{Dataset} & \textbf{CER} & \textbf{WER} \\
 \hline
-Ground Truth (GT) & - & - \\
+Ground Truth (GT) &  & 45.00 \\
 Voiced & -- & - \\
 Silent & - & - \\
 Silent, Voiced & - & - \\
