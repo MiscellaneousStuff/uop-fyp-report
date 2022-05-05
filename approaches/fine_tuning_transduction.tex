@@ -6,7 +6,7 @@ predictions of a chosen portion of the dataset.
 
 This is better than performing
 speech recognition on the final waveform generated in the Digital Voicing
-\cite{gaddy2020digital} paper.
+(\cite{gaddy2020digital}) paper.
 
 Although the method used in that paper isn'\t
 used directly for speech recognition, the end-to-end evaluation procedure
@@ -184,10 +184,18 @@ Voiced & -- & - \\
 Silent & - & - \\
 Silent, Voiced & - & - \\
 \hline
-Silent, Voiced, GT & \textbf{32.48} & \textbf{68.26} \\
+Silent, Voiced, GT & 32.48 & \textbf{68.26} \\
+Silent, Voiced, Non-Parallel Voiced, GT & \textbf{31.16} & 68.51 \\
 \hline
 \end{tabular}
 \end{center}}
+
+Here we can see that when the transduction model is trained on the full dataset,
+it produces the best final WER. However there is also another interesting finding,
+fine tuning the ground truth model on the silent, parallel voiced and non-parallel
+voiced harms the overall WER but the CER continues to improve. This means that
+the model is better able to predict individual characters but it's ability to
+predict words has been slightly reduced.
 
 \subsection{Summary}
 
