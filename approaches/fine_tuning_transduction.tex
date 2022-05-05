@@ -42,6 +42,7 @@ researches the affect of providing predicted speech from the SOTA silent speech
 transduction model to a speech recogntion model to improve it's performance for
 speech recognition and speech synthesis (\cite{DS2_original}).
 
+\iffalse
 \subsection{Relevance to EMG Silent Speech Classification}
 
 This issue is also reflected in the transduction task. The state-of-the-art
@@ -53,6 +54,26 @@ This becomes problematic if you want to use the transduction model as a basis fo
 speech recognition system as most pre-trained speech recognition systems
 are trained on clean audio datasets which means that naively applying a speech
 recognition system on top of the transduction model will result in reduced performance.
+\fi
+
+\subsection{Relation to EMG Silent Speech Classification}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=1\linewidth]{graphics/mel_vs_pred/458_g.png}
+    \caption{Ground Truth Mel Spectrogram}
+    \label{fig:sub1}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=1\linewidth]{graphics/mel_vs_pred/458_p.png}
+    \caption{Predicted Mel Spectrogram}
+    \label{fig:sub2}
+  \end{subfigure}
+  \caption{Comparison of Ground Truth and Predicted Mel Spectrograms}
+\end{figure}
 
 \subsection{Research Question}
 
