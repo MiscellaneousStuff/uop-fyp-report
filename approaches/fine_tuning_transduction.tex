@@ -1,5 +1,23 @@
 \section{Fine Tuning Speech Recognition on Model Predictions}
 
+This section details an improved approach for training a silent speech
+recognition system by pre-training a DeepSpeech2 model directly on the
+predictions of a chosen portion of the dataset.
+
+This is better than performing
+speech recognition on the final waveform generated in the Digital Voicing
+\cite{gaddy2020digital} paper.
+
+Although the method used in that paper isn'\t
+used directly for speech recognition, the end-to-end evaluation procedure
+can be used for speech recognition by transducing from from the silent EMG
+data into speech features, then using a vocoder to go from speech features
+into an audio waveform and then using a pretrained ASR model to predict speech
+from the waveform.
+
+The proposed method skips over the vocoder entirely which improves the
+end-to-end performance as there is now one less step involved.
+
 \subsection{Related Work}
 
 The intuition behind fine tuning a speech recognition model on the
