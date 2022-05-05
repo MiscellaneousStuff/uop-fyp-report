@@ -75,26 +75,41 @@ silent speech to audio and silent speech to text.
 
 \section{Machine Learning Background}
 
-\subsection{Digital Voicing of Silent Speech}
+\subsection{David Gaddy and Dan Klein}
+
+David Gaddy and Dan Klein have published two papers relating to the transduction of
+silent speech. These two papers are of particular interested for silent speech research
+as they describe a novel method of transducing silent speech into speech features.
+This makes it easier to produce speech synthesis and text classifiction systems
+for silent speech research. Also, the original paper also contains an accompanying
+open-source dataset which is comparable to smaller speech recognition datasets
+such as LJSpeech (\cite{ljspeech17}). This makes the two papers and their open-source
+dataset critical to the success of this dissertation, as only on in the project it
+was decided to not pursue the EMG data acquisition.
 
 \subsubsection{Original Paper}
 
-Paper from University of California, Berkely students David Gaddy and Dan Klein.
 The paper digitally voices silent speech from silently mouthed words which are
 converted to audible speech based on EMG sensor measurements which capture muscle movements.
+The novel contribution of this paper is  
+a method of transducing speech features directly from EMG recordings
+of a person's face during silently articulated speech. The main innovative approach
+suggested in this paper is to transfer audio targets from vocalised EMG recordings
+to silent EMG recordings by learning the alignment between silent EMG recordings
+and ground truth audio features.
+
+For each utterance in the dataset, silent EMG and vocalised EMG recordings are recorded
+in two different sessions. However, only the vocalised EMG recording also has an associated
+ground truth audio file (as silent speech involves not actually producing noise when
+speaking). Then the silent EMG recording is aligned with the vocalised EMG recording.
+This makes it possible to directly transduce silent EMG recordings into speech.
+
 
 \iffalse
 Other papers have used this approach to FILL REST OF THIS WITH REFERENCED TO SPEECH AND TO TEXT
 FROM DIGITAL VOICING, MIT ALTER EGO 2018 SUMMARISED AND 60 PG VERSION AND OTHER SOURCES.
 \fi
 
-Paper creates ML system to convert sEMG facial measurements that capture muscle impulses into synthesised speech.
-First paper to train from EMG collected during silently articulated speech.
-Introduces method of training on silent EMG by transferring audio targets from vocalised to to silent signals.
-Their method improves intelligibility of audio generated from silent EMG compared to baseline which only uses vocalised data.
-Decreased transcription WER from 64\% to 4\% in closed vocabulary condition.
-Decreased transcription WER from 88\% to 68\% on open vocabulary condition.
-Open-sourcing of silent and vocalised facial EMG measurements, accompanying training audio.
 (\cite{gaddy2020digital})
 
 \subsubsection{An Improved Model for Voicing Silent Speech}
