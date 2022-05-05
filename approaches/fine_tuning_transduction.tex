@@ -24,8 +24,10 @@ researches the affect of providing predicted speech from the SOTA silent speech
 transduction model to a speech recogntion model to improve it's performance for
 speech recognition and speech synthesis (\cite{DS2_original}).
 
+\subsection{Relevance to EMG Silent Speech Classification}
+
 This issue is also reflected in the transduction task. The state-of-the-art
-transduction model within the Improved Voicing (\cite{gaddy2021improved}) paper
+transduction model within the second David Gaddy (\cite{gaddy2021improved}) paper
 will always produce audio outputs with artefacts because of the final vocoder layer
 and because the mel spectrograms will always at best be an approximation.
 
@@ -33,6 +35,10 @@ This becomes problematic if you want to use the transduction model as a basis fo
 speech recognition system as most pre-trained speech recognition systems
 are trained on clean audio datasets which means that naively applying a speech
 recognition system on top of the transduction model will result in reduced performance.
+
+\subsection{Hypothesis}
+
+My hypothesis based on my literature review, 
 
 \iffalse
 However this also opens up a new possibility, use the error correcting properties
