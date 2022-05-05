@@ -62,12 +62,16 @@
 \chapter*{Abstract}	% The asterisk stops a chapter number being assigned
 
 In this dissertation, I present my work on a novel training regime which greatly
-reduces the amount of training data required for sEMG silent speech classification
+reduces the amount of training data required for electromyography (EMG)
+silent speech classification
 systems. This approach also decreases the end-to-end inference time of the classification
 by removing a key component requried in previous approaches. The proposed approach
-has a similar word-error rate (WER) to a previous approach, both being around 68\%,
+has a similar word-error rate (WER) to a previous SOTA approach,
+both being around 68\%,
 but requires far less training data (x115 times less)
-and inference speed is improved. EMG augmentation
+and inference speed is improved.
+
+EMG augmentation
 via data synthesis is also explored, however this approach is less successful.
 Nonetheless, the findings from that research are included in this report to help
 future researchers determine approaches that may work in the future.
@@ -75,6 +79,9 @@ future researchers determine approaches that may work in the future.
 Experimental results, visualisations, findings and ablation studies are provided
 for the silent speech classification task, along with intuitions for how the
 approach was discovered along with supporting evidence.
+
+Ultimately this dissertation provides a novel and efficient method for greatly
+improving the efficiency of future sEMG silent speech classification systems and
 
 \vspace{10mm}
 \section*{Consent to share}
