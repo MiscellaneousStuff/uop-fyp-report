@@ -26,6 +26,31 @@ an EMG augmentation model for voiced EMG data which can improve the
 performance of a regular transduction model by training on the
 ground truth voiced EMG data and the synthesized voiced EMG data.
 
+My research design involved experimenting with different hyperparameters
+for my proposed network to see which values produced the lowest
+loss value on the evaluation dataset. This metric was chosen as it
+was the most objective measure of how the model was able to generalise
+it's ability to produce novel EMG signals given a mel spectrogram input.
+
+The loss function chosen for this task is mean squared error. This was
+chosen for two reasons: firstly the original transduction model
+from the Digital Voicing (\cite{gaddy2020digital}) paper uses this
+loss function to transduce mel-frequency cepstrum co-efficients (MFCCs).
+MFCCs are another common method of representing speech features.
+
+Another
+reason mean squared error was used was that recent research into
+silent speech transduction uses an auxilliary loss function where the
+transducer is given an additional task to predict the features of
+the vocalised EMG input signal representation while it is presented
+with a silent EMG input signal. The loss functions which the authors
+chose was mean absolute error, however, they likely chose absolute
+error instead of squared error because it has less of a drastic
+effect on their overall loss calculation. For this task, we only
+care about predicting the vocalised EMG signals given speech features
+so mean squared error should provide a stronger signal to the overall
+network.
+
 \subsection{Summary}
 
 In summary, my hypothesis was disproved.
