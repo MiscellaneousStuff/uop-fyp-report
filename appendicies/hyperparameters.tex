@@ -28,15 +28,17 @@ batch\_size & Examples per single minibatch & 5 \\
 
 \section{Silent Speech Transduction Hyperparameters}
 
-\subsection{Initial Fine Tuning Experiments}
+\subsection{Improved Voicing Transducer Model used in Fine Tuning ASR}
 
 The hyperparameters for the transduction model were reduced from the original
 SOTA model due to hardware constraints. In the Additional Reproducability
-Information of the second David Gaddy (\cite{gaddy2021improved}) paper, they state
+Information of the second Digital Voicing (\cite{gaddy2021improved}) paper, they state
 that to train the full model takes roughly 12 hours on an Nvidia Quadro RTX 6000
 which has 24GB VRAM. The GPU I was experimenting on only had 8GB VRAM which meant
 that I had to halve the number of transformer layers and reduce the hidden dimension
-size.
+size. For reference, on an Nvidia RTX 3060 with Automated Mixed Precision enabled
+on PyTorch, training the transduction model with these settings on the full dataset 
+took 4 hours and 49 minutes.
 
 {\small\begin{center}
 \captionof{table}{SOTA Silent Speech Transduction Model}
