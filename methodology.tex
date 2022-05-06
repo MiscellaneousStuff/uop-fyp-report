@@ -87,6 +87,7 @@ were arrived at.
         December 2021 & Admin & Email supervisor with status update \\
         December 2021 & Synth Experiment & Switched vocoder to WaveGlow \\
         January 2022 & Admin & Email supervisor with status update \\
+        February 2022 & Break & No significant milestones in February \\
         March 2022 & Approach & Considered silent speech recognition \\
         March 2022 & Lit Review & Researched typical speech recognition models \\
         March 2022 & Lit Review & Researched deepspeech2 and conformer models \\
@@ -98,18 +99,26 @@ were arrived at.
     \end{tabularx}
 \end{center}}
 
-{\small\begin{center}
-    \captionof{table}{Off-the-record (OTR Approaches)}
-    \begin{tabularx}{\textwidth}{ l l l }
-        Approach & Notes \\
-        Speech recognition on raw EMG signals &
-        This approach proved to be unsuccessful because of the complexity
-        of converting the raw EMG signals into a suitable latent representation
-        which could then be decoded into text. I tried using the hand crafted
-        EMG features from (\cite{gaddy2020digital}) and the 5-layer RNN
-        layer from the DeepSpeech2 model from this project but to no avail.
-        However, this project did make me realise that perfoming ASR directly
-        on the predicted mel spectrograms from the transducer model would be
-        a worthy direction for research.
-    \end{tabularx}
-\end{center}}
+\subsection{Off-the-record (OTR) approaches}
+
+\subsubsection{Speech Recognition on Raw EMG signals}
+
+This approach proved to be unsuccessful because of the complexity
+of converting the raw EMG signals into a suitable latent representation
+which could then be decoded into text. I tried using the hand crafted
+EMG features from (\cite{gaddy2020digital}) and the 5-layer RNN
+layer from the DeepSpeech2 model from this project but to no avail.
+However, this project did make me realise that perfoming ASR directly
+on the predicted mel spectrograms from the transducer model would be
+a worthy direction for research.
+
+\subsubsection{Reconstruction Loss for Transducer Model}
+
+Research was conducted into adding an auxilliary loss signal
+to the state-of-the-art Digital Voicing transducer model
+(\cite{gaddy2021improved}) based on an approach
+used in a sequence-to-sequence voice reconstruction
+for silent speech paper (\cite{chinese_silent_speech}).
+I tried the mean absolute error used in the paper with similar
+weighting and mean loss error but unfortuately rather than regularise
+training, it destablised training.
