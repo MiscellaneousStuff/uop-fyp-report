@@ -96,6 +96,21 @@ files to train a regular speech recognition model. Based on my literature review
 and intuition from exploring the audio outputs viewing the mel spectrogram
 visulisations from the model, I was confident this approach would be successful.
 
+The speech recognition model used for this approach is the DeepSpeech2 model.
+I chose this model for two reasons: firstly it was easy to find a well-optimised
+implementation as the model has been around for years and the model is known
+to have good performance and secondly, the Digital Voicing paper
+(\cite{gaddy2020digital}) uses, although an albeit older, version of the
+DeepSpeech architecture. This means that the improved performance of my approach was
+less likely the speech recognition model architecture, and more because of the proposed
+training regime.
+
+The description of the exact model used can be found in the appendix along with the
+hyperparameters and audio preprocessing techniques used. The source code for the
+model, hyperparameters, pre-trained weights and audio preprocessing techniques
+used can all be found at the open-source release for this project
+\footnote{https://github.com/MiscellaneousStuff/semg-asr}.
+
 \subsection{Closed Vocabulary Dataset}
 
 The closed vocabulary dataset is the first dataset used to determine how much better
