@@ -21,6 +21,15 @@ best model found by the authors for this task was a
 
 \subsection{Summary}
 
-In summary this approach was unsuccessful because of the difficulty of
-accurately reproducing local features of EMG signals. The proposed
-approach was successful predicting at a global level.
+In summary, my hypothesis was disproved.
+My initial hypothesis was that it was possible to simply reverse the
+transduction network, which was introduced in the Digital Voicing paper
+for transcribing from EMG features into speech features, but instead
+reverse the features.
+From my findings I found that this wasn't true because the low level 
+features of the EMG data are difficult for the LSTM network to correctly reproduce.
+
+In hindsight my approach could have been improved by being more selective in
+the early stages. I could have determined which electrode contributed the most
+in the transduction task, and then tried to just synthesise the signals for that 
+particular channel and then tried to synthesise an increasing number of electrode channels.
