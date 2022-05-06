@@ -258,13 +258,7 @@ predict words has been slightly reduced.
   \label{fig:real-gt-vs-pred-mel}
   The raw mel spectrogram of the raw ground truth audio shows less distinct features
   as the range of values is exponentially higher than the log-melspectrogram of
-  the transducer models predictions. Comparing them both side by side, we can see
-  that for the raw-mel spectrogram, the loudness (represented as brightness) of the lower
-  pitched values is much higher than the other ones. Whereas the log-mel spectrogram
-  treats the loudness of values at every pitch the same. It is difficult to determine what
-  affect this would have had on the fully trained silent speech recognition system
-  proposed in this paper.
-  Not pictured in the figures, is
+  the transducer models predictions. Not pictured in the figures, is
   the text transcription for utterances which is: '"Eh?" said one of the men, turning.'.
 \end{figure}
 
@@ -272,6 +266,12 @@ One interesting implementation error that was found after conducting the experim
 was that the ground truth audio files have not had the exact same preprocessing techniques
 applied as the target mel spectrograms which the transduction model uses as a ground truth
 target during training, which can be seen in Figure \ref{fig:real-gt-vs-pred-mel}.
+Comparing both of the mel spectrograms side by side, we can see
+that for the raw-mel spectrogram, the loudness (represented as brightness) of the lower
+pitched values is much higher than the other ones. Whereas the log-mel spectrogram
+treats the loudness of values at every pitch the same. It is difficult to determine what
+affect this would have had on the fully trained silent speech recognition system
+proposed in this paper.
 
 The main difference is that the mel spectrogram values from the transduction model are
 log-mel spectrogram values. This is a common preprocessing technique in machine learning
