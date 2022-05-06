@@ -67,6 +67,21 @@ produced the lowest loss value on a validation set. The following
 hyperparameters of the proposed model were evaluted:
 number of LSTM layers, LSTM hidden dimension size.
 
+The results of those hyperparameter experiments are as follows:
+
+% (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
+{\small\begin{center}
+    \captionof{table}{EMG Synthesis Model Hyperparameter Results}
+    \begin{tabular} {  l  c | c  }
+    \hline
+    \textbf{LSTM Layers} & \textbf{LSTM Hidden Dimension} & \textbf{Test Loss} \\
+    \hline
+    Ground Truth (GT) & 66.70 & 110.49 \\
+    Silent, Voiced, GT & \textbf{41.02} & \textbf{81.69} \\
+    \hline
+    \end{tabular}
+\end{center}}
+
 Interestingly enough, even though this approach was unsuccessful,
 the hyperparamters which performed the best were very similar to
 a related task from another paper, which was only discovered after the
