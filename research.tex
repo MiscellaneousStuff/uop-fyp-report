@@ -57,6 +57,17 @@ trained with augmented EMG data versus without
 
 \subsection{Fine Tuning Speech Recognition on Transducer Predictions }
 
+The basis for this hypothesis comes from my literature review and
+experiments conducted during the EMG synthesis experiments. I noticed
+how the mel spectrograms from the regular transduction model looked
+blurrier, less precise and out of sync with the ground truth models.
+
+From this observation I looked into speech recognition models and
+tried to determine if speech recognition models which were trained
+on clean datasets suffered drastic accuracy loses when evaluated
+on noisy datasets. As it turns out this is true (\cite{DS2_original}).
+This line of reasoning is explored further in the ASR fine tuning approach.
+
 Question: Can fine tuning an ASR model on a silent speech
 transduction models mel spectrogram predictions improve performance for
 text classification? \\
