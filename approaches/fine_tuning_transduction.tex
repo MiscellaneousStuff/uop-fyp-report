@@ -223,6 +223,7 @@ Ground Truth (GT) & 61.99 & 100.74 \\
 Parallel Voiced & - & - \\
 Silent & 35.89 & 74.15 \\
 Silent, Parallel Voiced & - & - \\
+Silent, GT & 32.48 & 70.84 \\
 \hline
 Silent, Parallel Voiced, GT & 32.48 & \textbf{68.26} \\
 Silent, Parallel Voiced, Non-Parallel Voiced, GT & \textbf{31.16} & 68.51 \\
@@ -255,11 +256,15 @@ predict words has been slightly reduced.
   \end{subfigure}
   \caption{Comparison of Real Ground Truth and Predicted Mel Spectrograms}
   \label{fig:real-gt-vs-pred-mel}
-  From both of these mel spectrograms, we can see the the low level features
-  of the predicted mel spectrogram appear blurrier (the curvy red lines).
-  This is because the transduction model a simple linear layer (MLP) between the final
-  transformer layer and the output. This limits the ability of the model to produce
-  more fine tuned results. Not pictured in the figures, is
+  The raw mel spectrogram of the raw ground truth audio shows less distinct features
+  as the range of values is exponentially higher than the log-melspectrogram of
+  the transducer models predictions. Comparing them both side by side, we can see
+  that for the raw-mel spectrogram, the loudness (represented as brightness) of the lower
+  pitched values is much higher than the other ones. Whereas the log-mel spectrogram
+  treats the loudness of values at every pitch the same. It is difficult to determine what
+  affect this would have had on the fully trained silent speech recognition system
+  proposed in this paper.
+  Not pictured in the figures, is
   the text transcription for utterances which is: '"Eh?" said one of the men, turning.'.
 \end{figure}
 
