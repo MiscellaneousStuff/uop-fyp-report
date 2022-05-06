@@ -255,13 +255,17 @@ was that the ground truth audio files have not had the exact same preprocessing 
 applied as the target mel spectrograms which the transduction model uses as a ground truth
 target during training, which can be seen in Figure \ref{fig:real-gt-vs-pred-mel}.
 
-The main difference is that the mel spectrogram values from the transduction model has
-had the log() function applied. This is a common preprocessing technique in machine learning
+The main difference is that the mel spectrogram values from the transduction model are
+log-mel spectrogram values. This is a common preprocessing technique in machine learning
 used to make it easier for a regression model to predict a real valued output. This finding
 may confound the results for the ground truth results in the above experiments. Interestingly,
-training the ASR model on the grouth truth values with a different range still results in better
-performance. This makes it unclear whether the ground truth values being within a different range
-actually helps or hurts the performance of the final model.
+training the ASR model on the grouth truth represented as raw mel spectrograms mixed
+with the log-mel spectrograms of the transducer predictions together still results in better
+performance.
+
+This means that performance of this model may be greatly increased in the future by fixing
+this bug. Unfortunately this bug was discovered towards the end of the project where it would
+be too time consuming to explore the effect of fixing this bug.
 
 \subsection{Summary}
 
