@@ -75,7 +75,7 @@ recognition system on top of the transduction model will result in reduced perfo
     \caption{Predicted Mel Spectrogram}
     \label{fig:sub2}
   \end{subfigure}
-  \caption{Comparison of Ideal Ground Truth and Predicted Mel Spectrograms}
+  \caption{Comparison of Normalised Ground Truth and Predicted Mel Spectrograms}
   \label{fig:ideal-gt-vs-pred-mel}
   From both of these mel spectrograms, we can see the low level features
   of the predicted mel spectrogram appear blurrier (the horizontal red lines
@@ -90,6 +90,7 @@ My proposed method involves pre-training the state-of-the-art EMG silent speech
 transduction model from the second Digital Voicing paper (\cite{gaddy2021improved}),
 and then saving the predicted mel spectrogram speech features from the model as a
 custom dataset (refer to Figure \ref{fig:ideal-gt-vs-pred-mel} for an example).
+
 Then this dataset will be used along with the ground truth audio
 files to train a regular speech recognition model. Based on my literature review
 and intuition from exploring the audio outputs viewing the mel spectrogram
