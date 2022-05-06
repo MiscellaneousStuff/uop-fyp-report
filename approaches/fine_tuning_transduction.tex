@@ -289,6 +289,31 @@ This means that performance of this model may be greatly increased in the future
 this bug. Unfortunately this bug was discovered towards the end of the project where it would
 be too time consuming to explore the effect of fixing this bug.
 
+\subsection{Limitations}
+
+Their are two primary limitations of this approach which relate to the design
+of the speech recognition model, and the implementation of the design of the plan.
+The first limitation is the use of greedy decoding and lack of a language model
+when the speech recognition model produces it's final text transcript.
+Speech recognition models typically use a technique called Beam Search
+(\cite{beam_search}) which uses a breadth-first search over the predicted tokens
+for a transcription to find the most likely transcription.
+
+Instead the greedy decoder used in this approach simply returns the most character
+which the speech recognition model has determined has the highest probability.
+Not only that but recent speech recogntion models use language models to
+improve the intelligibility of the final transcript. This is typically done
+by training a recurrent neural network (RNN) or other model to learn which
+mistakes the initial speech recognition model makes and correct them
+(\cite{language_model}).
+
+However rather than being a negative sign for this approach, this has a positive
+finding. When this approach uses a completely unoptimised method for transcribing
+text from silent speech signals, it can still perform as well an older
+state-of-the-art method (\cite{gaddy2020digital}). This means that if these
+simple techniques were applied to this approach, the WER would almost
+certainly be dramtically reduced even further.
+
 \subsection{Summary}
 
 In summary, this approach proves to be very successful for producing
