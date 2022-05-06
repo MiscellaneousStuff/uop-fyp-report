@@ -1,0 +1,208 @@
+\iffalse
+Mark Scheme:
+- Extensive Research
+- Understanding of complex subject matter
+- Identifies flaws, gaps or inconsistencies in extant knowledge
+\fi
+
+\iffalse
+
+Mu-Law compression:
+- compresses audio signal into discrete bins whilst preserving dynamic range
+
+Current sEMG Silent Speech Text Classification Research:
+- https://dspace.mit.edu/bitstream/handle/1721.1/123121/1128187233-MIT.pdf?sequence=1&isAllowed=y
+
+\fi
+
+\chapter{Literature Review} \label{chap:lit-review}
+
+This section of the report identifies the early research directions which were considered,
+along with explaining basic terms in the EMG silent speech domain. The goal of this section
+is to briefly familiarise the reader with the silent speech domain and silent speech
+interfaces in general. Then the two key approaches to silent speech systems are explored,
+silent speech to audio and silent speech to text.
+
+\section{Key Terms}
+
+A list of silent speech and speech recognition domain specific key terms are provided
+to familiarise the reader with certain concepts to help the reader digest this report.
+
+\begin{itemize}
+  \item \emph{Word Error Rate (WER):}
+  Metric used in speech recognition systems which accounts for differences in length of
+  a recognised word sequence and a reference word sequence. WER is derived from
+  Levenshtein distance  which is a string metric for measuring the difference between two
+  sequences. The Levenshtein distance between two words is essentially the minimum number of
+  single-character edits (including insertions, deletions or substitutions) required to
+  change one word into another. Another term for it is the "edit distance".
+  \[
+    WER
+    = \dfrac{S + D + I}{N}
+    = \dfrac{S + D + I}{S + D + C}
+  \]
+  Where each term means:\\
+  S: Number of substitutions\\
+  D: Number of deletions\\
+  I: Number of insertions\\
+  C: Number of correct words\\
+  N: Number of words in the reference (N = S+D+C)
+  (\cite{1966SPhD...10..707L})
+  \item \emph{Mel-Scale:}
+  Perceptual scale of pitches judged by listeners to be equal in distance from one another.
+  \[ m = 2595 \log_{10} \left(1 + \dfrac{f}{700}\right) \]
+  (\cite{mel_scale_formula})
+  \item \emph{Silent Speech Interface (SSI):}
+  "A silent speech interface (SSI) is a system enabling speech communication to take
+  place where an audible acoustic signal is unavailable. By acquiring sensor data from
+  elements of the human speech production process, an SSI produces a digital representation
+  of speech which can be synthesized directly, interpreted as data or routed into a communications
+  network" (\cite{ssi_definition}).
+  \item \emph{Surface Electromyography (sEMG):}
+  Non-invasive, computer-based technique that records the electrical impulses placed on the surface
+  of the skin overlying the nerve at rest (i.e. static) and during activity (i.e. dynamic).
+  \item \emph{Automatic Speech Recognition (ASR):}
+  The process of creating a text transcription of speech, known as a word sequence,
+  in which the focus is on the shape of the speech wave (\cite{asr_definition}).
+\end{itemize}
+
+\section{Machine Learning Background}
+
+\subsection{David Gaddy and Dan Klein}
+
+David Gaddy and Dan Klein have published two papers relating to the transduction of
+silent speech. These two papers are of particular interested for silent speech research
+as they describe a novel method of transducing silent speech into speech features.
+This makes it easier to produce speech synthesis and text classifiction systems
+for silent speech research. Also, the original paper also contains an accompanying
+open-source dataset which is comparable to smaller speech recognition datasets
+such as LJSpeech (\cite{ljspeech17}). This makes the two papers and their open-source
+dataset critical to the success of this dissertation, as only on in the project it
+was decided to not pursue the EMG data acquisition.
+
+\subsubsection{Original Paper}
+
+The paper digitally voices silent speech from silently mouthed words which are
+converted to audible speech based on EMG sensor measurements which capture muscle movements.
+The novel contribution of this paper is  
+a method of transducing speech features directly from EMG recordings
+of a person's face during silently articulated speech. The main innovative approach
+suggested in this paper is to transfer audio targets from vocalised EMG recordings
+to silent EMG recordings by learning the alignment between silent EMG recordings
+and ground truth audio features.
+
+For each utterance in the dataset, silent EMG and vocalised EMG recordings are recorded
+in two different sessions. However, only the vocalised EMG recording also has an associated
+ground truth audio file (as silent speech involves not actually producing noise when
+speaking). Then the silent EMG recording is aligned with the vocalised EMG recording.
+This makes it possible to directly transduce silent EMG recordings into speech.
+
+
+\iffalse
+Other papers have used this approach to FILL REST OF THIS WITH REFERENCED TO SPEECH AND TO TEXT
+FROM DIGITAL VOICING, MIT ALTER EGO 2018 SUMMARISED AND 60 PG VERSION AND OTHER SOURCES.
+\fi
+
+(\cite{gaddy2020digital})
+
+\subsubsection{An Improved Model for Voicing Silent Speech}
+
+Evolution of Digital Voicing paper which improves model performance compared to previous work.
+Model learns its own input features directly from EMG signals instead of hand-crafted features in prior work.
+New model uses convolutional layers to extract features from the signals.
+Transformer-encoder layers used to propagate signals across longer distances instead of bi-directional LSTM layers.
+Additional signal introduced during learning by introducing auxillary task of predicting phoneme labels in addition to predicting speech audio features.
+On open vocabulary intelligibility evaluation, the new model improves the absolute WER by 25.8\%.
+(\cite{gaddy2021improved})
+
+Establishes new SOTA performance via 3 main improvements:
+
+\begin{itemize}
+  \item \emph{Replace LSTMs with Transformer-Encoder:}
+  Model bi-directional triple stacked 1024-unit LSTM layer replaced with 6 transformer-encoder
+  layer to predict EEG features found using CNN over 1 second to predict speech along with
+  phoneme loss signal.
+  Ablation shows WER go from 42.2\% to 45.2\% when this is removed.
+  \item \emph{Introduce Phoneme Loss:}
+  Introduced auxillary phoneme prediction task to as additional 
+  output of self-attention transformer-encoder. This signal is used to improve the performance
+  of the network by learning to predict the phoneme of the speech which is being detected and
+  also regularises training.
+  Ablation shows WER go from 42.2\% to 51.7\% when this is removed.
+  \item \emph{Replace hand-designed features with convolution features:}
+  Uses CNN block based on ResNet to extract features from EMG signals which are end-to-end
+  trainable instead of using hand-crafted features to improve the representational power of the network.
+  Ablation shows WER go from 42.2\% to 46\% when this is removed.
+\end{itemize}
+
+(\cite{gaddy2021improved})
+
+\iffalse
+
+\section{Silent Speech Interfaces for Speech Restoration: A Review}
+
+\section{Proposed Directions for Research}
+
+\subsection{Text Classification}
+
+\subsection{Data Augmentation}
+
+It might be possible to use GANs (Generative Adversarial Networks) or
+VAEs (Variational Auto Encoders) to create a model which can generate
+more data samples.
+
+One possible data augmentation method for sEMG based silent speech is to
+reverse a SOTA transduction model. Existing transduction models for
+EMG to speech use either EMG features or raw EMG data and transduce
+it into speech features (typically mel spectrograms or MFCCs). However,
+it may be possible to predict the EMG data from the mel spectrograms.
+
+\subsection{Improving Existing Models}
+
+\subsubsection{Model Improvements}
+
+Recently there has been more research into silent speech models which
+can directly produce text from muscle activity. One paper introduces
+a sequence-to-sequence voice reconstruction model and training regime
+called \textit{SSRNet} to address what they call the sEMG2V problem
+in a tonal language.
+
+combines
+multiple methods into one to achieve strong performance in synthesizing
+speech in Mandarin Chinese from EMG signals. The authors of this paper
+propose a complex architecture, where the model is based on the
+FastSpeech (\cite{fastspeech}) neural network architecture.
+
+The FastSpeech
+neural network architecture is to convert text, it it's phonemic
+representation into mel spectrograms. Compared to other speech
+synthesis models, FastSpeech includes novel neural network components.
+These include a Feed-Forward Transformer, FFT Block, Length Regulator
+and Duration Predictor. The purpose of these neural network blocks
+is to improve the abiltiy of the model to correctly predict the duration
+of a phoneme. This is particularly important because for text to speech
+models, it is difficult to determine the alignment of the inputs to
+the outputs as the only information which is provided is text, which
+does not contain timing information.
+
+\section{Connectionist Temporal Classification (CTC)}
+
+For any speech recognition task, a model must know the alignment
+between the input (e.g. audio, EMG features, etc.) and the target
+transcription. On the surface, this makes training any speech
+recognition model difficult.
+
+Without having the alignments between the input and the transcription,
+simpler approaches aren't available to us, such as mapping a single
+character to a fixed number of inputs. This is because people's rates
+of speech vary, regardless of the input modality (e.g. audio, EMG features,
+etc). Another option is to hand-label the alignments between the input
+and the text transcriptions. This would produce a performant model, however,
+hand-labeling the alignments is time consuming, especially for larger datasets.
+
+Connectionist Temporal Classification (CTC) is a method to train a model
+without knowing the alignment between the input and the output and is especially
+well suited to labeled datasets such as speech recognition.
+It was originally proposed in a 2006 paper (\cite{ctc_original}) and specifically
+dealt with training recurrent neural networks (RNN) (\cite{rnn_fundamentals}).
+\fi
