@@ -1,0 +1,34 @@
+This section contains the mel spectrogram options applied to all of the audio files,
+whether they were transduced or just produced from the ground truth audio files.
+
+{\small\begin{center}
+    \captionof{table}{DeepSpeech2 and Transducer Mel Spectrogram Hyperparameters}
+    \begin{tabular} { | l | c | c | }
+        \hline
+        Setting & Description & Value \\
+        \hline
+        sample\_rate & Input audio sampling rate & 16000 \\
+        n\_mels & Number of mel-filterbank bins & 128 bins \\
+        hop\_length & Length of non-intersecting portion of window length & 160 samples \\
+        win\_length & Number of samples to consider for each window & 432 samples \\
+        n\_fft & Number of Fast Fourier Transform bins & 512 bins \\
+        \hline
+    \end{tabular}
+\end{center}}
+
+The preprocessing pipeline for the training set of the ground truth audio models
+included extra data augmentation steps. These techniques are regularly used in ASR
+models as they have been shown to regularise the training of the networks.
+
+\begin{python}
+train_audio_transforms = nn.Sequential(
+    torchaudio.transforms.MelSpectrogram(
+        sample_rate=16_000,
+        n_mels=128,
+        hop_length=160,
+        win_length=432,
+        n_fft=512,
+        center=False),
+    torchaudio.transforms.FrequencyMasking(freq_mask_param=15),
+    torchaudio.transforms.TimeMasking(time_mask_param=35))
+\end{python}
