@@ -1,10 +1,14 @@
 \chapter{Literature Review} \label{chap:lit-review}
 
-The purpose of this literature review is to explain the context
-for the research directions for this project. This section also
-provides background knowledge specific to the silent speech
-domain which should help familiarise readers with this particularly
-niche subject area.
+The purpose of this literature review is to give a general background
+into silent speech interfaces and there context for real-world problems.
+Then the context for the research directions for this project
+are explained. Following this, the
+background knowledge specific to the silent speech
+domain is provided which should help familiarise readers with this particularly
+niche subject area. Also included in this literature review is
+an overview of the primary silent speech dataset used throughout
+all of the approaches.
 
 \section{Key Terms}
 
@@ -108,6 +112,28 @@ each other because of the difference within the smaller time windows.
 
 Despite this, there have been many successful data augmentation techniques
 for EMG and simliar EEG signals.
+
+\section{Silent Speech Classification}
+
+In recent years, there has been increasing research into systems
+which can classify silent speech signals into text. One major approach
+is the MIT AlterEgo (\cite{alter_ego}) which details a system which 
+records biosignals recorded by electrodes placed on a person's face and
+throat while a user is silently articulating speech (EMG).
+
+Then these EMG signals are preprocessed, filtered and then processed
+using a convolutional neural network (CNN) model (\cite{cnn_def}).
+
+Although CNN models are typically used
+to process 2-dimensional data, they are also very well suited
+to processing 1-dimensional data and can be very efficient. One
+paper found that using CNNs instead of deconvolution algorithms
+to process digital signals results in a 65x speedup (\cite{cnn_dsp}).
+
+The final accuracy of the MIT AlterEgo method on a relatively
+constrained dataset was 92\% mean word accuracy across multiple
+users. However, the vocabulary set represented used in this dataset
+was very limited.
 
 \section{Summary}
 
