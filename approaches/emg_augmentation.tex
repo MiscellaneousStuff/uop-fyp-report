@@ -51,6 +51,15 @@ care about predicting the vocalised EMG signals given speech features
 so mean squared error should provide a stronger signal to the overall
 network (\cite{silent_speech_tonal}).
 
+\subsection{Proposed Method}
+
+My proposed method involves taking the transduction model from
+the original Digital Voicing (\cite{gaddy2020digital}) paper,
+and reversing the input and the output of the model. The intuition
+behind this is that, if the model is able to take the featurised
+EMG inputs and predict either MFCCs or mel spectrograms reliably,
+it may be possible to do the reverse.
+
 \subsection{Summary}
 
 In summary, my hypothesis was disproved.

@@ -39,8 +39,8 @@ However when they trained on the full dataset (12,000 hours), the clean audio
 WER was 8.46\% compared to 13.59\% for the noisy dataset.
 
 The results from their paper show a strong relationship between datasize and
-affect on evaluation performance on a noisy dataset. For this reason, this paper
-researches the affect of providing predicted speech from the SOTA silent speech
+effect on evaluation performance on a noisy dataset. For this reason, this paper
+researches the effect of providing predicted speech from the SOTA silent speech
 transduction model to a speech recognition model to close the gap between
 the WER when evaluted on the ground truth audio features and the predicted
 audio features (\cite{DS2_original}).
@@ -209,7 +209,7 @@ expect the model to have a lower WER than this value.
 \textbf{Dataset} & \textbf{CER} & \textbf{WER} \\
 \hline
 Ground Truth (GT) & 61.99 & 100.74 \\
-Parallel Voiced & - & - \\
+Parallel Voiced & 176.37 & 104.37 \\
 Silent & 35.89 & 74.15 \\
 Silent, Parallel Voiced & - & - \\
 Silent, GT & 32.48 & 70.84 \\
@@ -259,7 +259,7 @@ Comparing both of the mel spectrograms side by side, we can see
 that for the raw-mel spectrogram, the loudness (represented as brightness) of the lower
 pitched values is much higher than the other ones. Whereas the log-mel spectrogram
 treats the loudness of values at every pitch the same. It is difficult to determine what
-affect this would have had on the fully trained silent speech recognition system
+effect this would have had on the fully trained silent speech recognition system
 proposed in this paper.
 
 The main difference is that the mel spectrogram values from the transduction model are
