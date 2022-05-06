@@ -55,7 +55,11 @@ network (\cite{silent_speech_tonal}).
 
 My proposed method involves taking the transduction model from
 the original Digital Voicing (\cite{gaddy2020digital}) paper,
-and reversing the input and the output of the model. The intuition
+and reversing the input and the output of the model.
+In other words feeding in a ground truth mel spectrogram into the
+model and having it predict the EMG signals, in a sequence to
+sequence manner.
+The intuition
 behind this is that, if the model is able to take the featurised
 EMG inputs and predict either MFCCs or mel spectrograms reliably,
 it may be possible to do the reverse.
