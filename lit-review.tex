@@ -65,7 +65,7 @@ when cropping was applied to an image recognition dataset for the
 Caltech 101 dataset, it lead to a Top-1 score increase of 13.82\%
 (\cite{geometric_augment}).
 
-However unlike images EMG data is a collection non-stationary
+However unlike images, EMG data is a collection non-stationary
 time-series data which has been collected from different electrodes
 and also contains many other artefacts such as baseline noise,
 powerline interference and other contamination (\cite{semg_filtering}).
@@ -77,8 +77,9 @@ Also, in computer vision projects, it is easy to determine whether
 an augmented dataset is similar to the original signal. However for EMG
 signals, it is difficult to determine if an augmented dataset has still
 retained key properties of the original dataset.
-Figure \ref{fig:real-vs-pred-emg} you provides a sample the original vocalised
-EMG data and the synthesized EMG data for an utterance as an example.
+Figure \ref{fig:real-vs-pred-emg} provides a sample of an original
+EMG data recording during vocalised speech and the synthesized EMG
+data, for an utterance from this project to demonstrate this difficulty.
 
 \begin{figure}[hbtp]
     \caption{Original vs Synthesized Vocal EMG Data from EMG Synthesis Approach}
