@@ -60,6 +60,18 @@ behind this is that, if the model is able to take the featurised
 EMG inputs and predict either MFCCs or mel spectrograms reliably,
 it may be possible to do the reverse.
 
+\subsection{Hyperparameter Tuning}
+
+Different hyperparameter values were experimented with to determine what
+produced the lowest loss value on a validation set. The following
+hyperparameters of the proposed model were evaluted:
+number of LSTM layers, LSTM hidden dimension size.
+
+Interestingly enough, even though this approach was unsuccessful,
+the hyperparamters which performed the best were very similar to
+a related task from another paper, which was only discovered after the
+fact which made it seemed to add credibility to this task.
+
 \subsection{Summary}
 
 In summary, my hypothesis was disproved.
