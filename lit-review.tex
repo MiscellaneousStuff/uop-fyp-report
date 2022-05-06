@@ -6,3 +6,29 @@ provides background knowledge specific to the silent speech
 domain which should help familiarise readers with this particularly
 niche subject area.
 
+\section{Key Terms}
+
+A list of silent speech and speech recognition domain specific key terms are provided
+to familiarise the reader with certain concepts to help the reader digest this report.
+
+\begin{itemize}
+\item \emph{Word Error Rate (WER):}
+Metric used in speech recognition systems which accounts for differences in length of
+a recognised word sequence and a reference word sequence. WER is derived from
+Levenshtein distance  which is a string metric for measuring the difference between two
+sequences. The Levenshtein distance between two words is essentially the minimum number of
+single-character edits (including insertions, deletions or substitutions) required to
+change one word into another. Another term for it is the "edit distance".
+\[
+  WER
+  = \dfrac{S + D + I}{N}
+  = \dfrac{S + D + I}{S + D + C}
+\]
+Where each term means:\\
+S: Number of substitutions\\
+D: Number of deletions\\
+I: Number of insertions\\
+C: Number of correct words\\
+N: Number of words in the reference (N = S+D+C)
+(\cite{1966SPhD...10..707L})
+\end{itemize}
