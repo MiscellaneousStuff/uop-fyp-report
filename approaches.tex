@@ -11,10 +11,9 @@ into a text transcription.
 
 For the purposes of the fine tuning experiments, the ground truth audio files
 are preprocessed into mel spectrograms rather than MFCCs as in the original two papers
-(\cite{gaddy2020digital}, \cite{gaddy2021improved}). The reason for this is because 
-mel spectrograms contain more raw data than MFCCs which makes them more appropriate for
-speech recognition and also the vocoder used for this paper uses mel spectrograms as the input,
-as do most SOTA vocoders.
+(\cite{gaddy2020digital}, \cite{gaddy2021improved}). The primary reason for this
+was because the pre-trained vocoder (speech features to audio waveform) model
+I was using to listen to predicted audio used mel spectrograms.
 
 \input{approaches/emg_augmentation.tex}
 
