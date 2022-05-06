@@ -67,22 +67,24 @@
 In this dissertation, I present my work on a novel training regime which greatly
 reduces the amount of training data required for electromyography (EMG)
 silent speech classification
-systems. This approach also decreases the end-to-end inference time of the classification
-by removing a key component requried in previous approaches. The proposed approach
+systems.
+
+This approach also decreases the end-to-end inference time of the classification
+by removing a key component requried in previous approaches as also requires
+far less training data for the speech recognition network component of the system
+(x115 times less). The proposed approach
 has a similar word-error rate (WER) to a previous SOTA approach,
-both being around 68\%,
-but requires far less training data (x115 times less)
-and inference speed is improved.
+both being around 68\%.
 
-EMG augmentation
-via data synthesis is also explored, however this approach is less successful.
-Nonetheless, the findings from the research is included in this report to help
-future researchers avoid fruitless methods in the future.
-
-Experimental results, visualisations, findings and ablation studies are provided
+Experimental results, visualisations, findings
+and ablation studies are provided
 for the silent speech classification task, along with intuitions for how the
 approach was discovered along with ablation studies highlighting what type
-of is most useful for the approach.
+of dataset is most useful for the approach.
+
+EMG augmentation via data synthesis is also explored, however this approach
+is less successful but is left in the report to help other researchers avoid
+the issues this project encountered.
 
 Ultimately this dissertation provides a novel and efficient method for greatly
 improving the training and runtime efficiency of future EMG silent speech
