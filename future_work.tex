@@ -4,17 +4,25 @@
 
 \subsection{Data Augmentation via EMG Synthesis}
 
-
+One major flaw with the model used for synthesizing EMG signals
+was that the input mel spectrograms for the synthesis model were
+then directly fed into the LSTM network. However all modern
+machine learning approaches which process speech features such as
+mel spectrograms either process the mel spectrograms into hand-crafted
+features or use a convolutional neural network to learn features
+in an end-to-end model. Although it's unclear how this may have affected
+the proposed approach in this project, this is a fundamental flaw with
+the approach that would need to corrected in any future approaches.
 
 \subsection{Fine Tuning Speech Recognition on Model Predictions}
 
 The experiments conducted for the fine tuning ASR approach contained
 a major flaw where the ground truth ASR model was trained using
-ground audio data which was transformed into raw mel spectrograms
-but were refined using predicted log-mel spectrograms from the
-transduction model.
+the ground truth audio data, which was transformed into raw mel spectrograms.
+However, the ASR models in the experiment were then
+refined using predicted log-mel spectrograms from the transduction model.
 
 A visual demonstration of the difference between these representations
 was presented in Figure \ref{fig:real-gt-vs-pred-mel}. Future work
-on this method should explore whether fixing this bug results in
-significantly improved performance or not.
+on this method should explore whether using log-mel spectrograms for
+the ground truth and predicted mel spectrograms improves performancce.
