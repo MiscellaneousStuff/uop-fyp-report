@@ -62,17 +62,17 @@ recognition system on top of the transduction model will result in reduced perfo
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=1.\linewidth]{graphics/mel_vs_pred/458_g.png}
+    \includegraphics[width=1.\linewidth]{graphics/mel_vs_pred/ideal/458_g.png}
     \caption{Ground Truth Mel Spectrogram}
     \label{fig:sub1}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=1\linewidth]{graphics/mel_vs_pred/458_p.png}
+    \includegraphics[width=1\linewidth]{graphics/mel_vs_pred/ideal/458_p.png}
     \caption{Predicted Mel Spectrogram}
     \label{fig:sub2}
   \end{subfigure}
-  \caption{Comparison of Ground Truth and Predicted Mel Spectrograms}
+  \caption{Comparison of Ideal Ground Truth and Predicted Mel Spectrograms}
   From both of these mel spectrograms, we can see the the low level features
   of the predicted mel spectrogram appear blurrier (the curvy red lines).
   This is because the transduction model a simple linear layer (MLP) between the final
@@ -221,6 +221,31 @@ fine tuning the ground truth model on the silent, parallel voiced and non-parall
 voiced harms the overall WER but the CER continues to improve. This means that
 the model is better able to predict individual characters but it's ability to
 predict words has been slightly reduced.
+
+\subsection{Implementation Errors}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=1.\linewidth]{graphics/mel_vs_pred/real/458_g.png}
+    \caption{Ground Truth Mel Spectrogram}
+    \label{fig:sub1}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=1\linewidth]{graphics/mel_vs_pred/real/458_p.png}
+    \caption{Predicted Mel Spectrogram}
+    \label{fig:sub2}
+  \end{subfigure}
+  \caption{Comparison of Real Ground Truth and Predicted Mel Spectrograms}
+  From both of these mel spectrograms, we can see the the low level features
+  of the predicted mel spectrogram appear blurrier (the curvy red lines).
+  This is because the transduction model a simple linear layer (MLP) between the final
+  transformer layer and the output. This limits the ability of the model to produce
+  more fine tuned results. Not pictured in the figures, is
+  the text transcription for utterances which is: '"Eh?" said one of the men, turning.'.
+\end{figure}
 
 \subsection{Summary}
 
