@@ -93,12 +93,12 @@ performing experiments are recorded:
     \captionof{table}{EMG Synthesis Model Hyperparameter Results}
     \begin{tabular} {  c | c | c  }
     \hline
-    \textbf{LSTM Hidden Dimension Size} & \textbf{No. of Epochs} & \textbf{Test Loss} \\
+    \textbf{LSTM Hyperparameters} & \textbf{No. of Epochs} & \textbf{Test Loss} \\
     \hline
-    128 & 100 & 191.56 \\
-    128 & 1000 & 104.30 \\
-    256 & 1000 & 102.266 \\
-    256 & 1000 & 98.64 \\
+    3-layer, 128 & 100 & 191.56 \\
+    3-layer, 128 & 1000 & 104.30 \\
+    3-layer, 256 & 1000 & 102.266 \\
+    3-layer, 256 & 1000 & 98.64 \\
     \hline
     \end{tabular}
 \end{center}}
@@ -107,6 +107,46 @@ Interestingly enough, even though this approach was unsuccessful,
 the hyperparamters which performed the best were very similar to
 a related task from another paper, which was only discovered after the
 fact which made it seemed to add credibility to this task.
+
+\subsection{Results and Visualisations}
+
+For the results, GT refers to the ground truth dataset and SYNTH
+refers to a synthesized version of the groud truth datset.
+
+{\small\begin{center}
+    \captionof{table}{Test Loss for Different Datasets}
+    \begin{tabular} {  c | c | c  }
+    \hline
+    \textbf{Dataset} & \textbf{LSTM Hyperparameters} & \textbf{Test Loss} \\
+    \hline
+    GT & 3-layer, 1024 dim & 2.513 \\
+    GT + SYNTH & 3-layer, 1024 dim & 4.829 \\
+    \hline
+    \end{tabular}
+\end{center}}
+
+\begin{figure}[hbtp]
+    \caption{EMG Synthesis Sample}
+    \label{fig:real-vs-pred-emg-2}
+    \centering
+    \includegraphics[width=0.75\linewidth]{graphics/emg_augment/real_vs_synth.png}
+\end{figure}
+
+\begin{figure}[hbtp]
+    \caption{Mel Spectrogram from Transducer Trained with Real and Synthesized EMG}
+    \label{fig:real-vs-pred-emg-3}
+    \centering
+    \includegraphics[width=0.75\linewidth]{graphics/emg_augment/real_vs_synth.png}
+\end{figure}
+
+As can be seen from the Figure \ref{gig:real-vs-pred-emg-2}, the EMG
+synthesis model is able to learn the temporal relationship between
+the input mel spectrograms and the target EMG signal. The synthesis
+model is also able to learn the peaks of the EMG signals across time.
+However, because the model is only learning a smoothed representation
+of the underlying signal, it is not able to accuracy reproduce the EMG
+signals which distinguish between different pitches. This can be seen
+in Figure \ref{gig:real-vs-pred-emg-3}.
 
 \subsection{Summary}
 
@@ -118,10 +158,13 @@ reverse the features.
 
 From my findings I found that this wasn't true because the low level 
 features of the EMG data are difficult for the LSTM network to correctly
-reproduce.
+reproduce which hurts the models ability to accurately reproduce the
+fine tuned parts of the EMG signal which correspond to the pitch of the
+input signal.
 
 In hindsight my approach could have been improved by being more selective in
 the early stages. I could have determined which electrode contributed the most
 in the transduction task, and then tried to just synthesise the signals for that 
 particular channel and then tried to synthesise an increasing number of
-electrode channels.
+electrode channels. I also could have used a convolutional layer
+to generate the EMG signal.
