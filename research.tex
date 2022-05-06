@@ -5,6 +5,38 @@ at a high level. The individual approaches futher on contain the datasets,
 experimental conditions, assumptions, related work and evaluation metrics
 along with justification for each individual approach.
 
+\section{Informal Research Goals}
+
+One central idea to the research experiments conducted in this project
+is reproducibilty. Every single experiment for the silent speech
+recognition fine tuning was run with the same random seed as was the
+experiments for the EMG synthesize.
+
+Random seeds are important for machine learning projects because
+they are used to initialise the weights of neural networks. Different
+random seeds can drastically change the performance of a neural network,
+with some authors finding that the standard deviation of a model's performance
+can vary by as much as 72\% (\cite{random_seed_variance}).
+They are also used to determine
+the order in which training datasets
+are shuffled and arranged into mini-batches for training and many
+other countless implementation details.
+
+The following random seeds were used during research and were used
+to intialise the random seed values of the NumPy,
+PyTorch (\cite{pytorch}) and default Python random number generator.
+
+{\small\begin{center}
+    \captionof{table}{Random Seed Values per Approach}
+    \begin{tabular} {  l  c  c  }
+    \hline
+    Approach & Random Seed Value \\
+    \hline
+    EMG Synthesis & 1 \\
+    ASR Fine Tuning & 7 \\
+    \end{tabular}
+\end{center}}
+
 \section{Full List of Research Questions with Hypotheses}
 
 \subsection{Data Augmentation via EMG Synthesis}

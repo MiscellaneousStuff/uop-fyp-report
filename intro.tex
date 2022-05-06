@@ -36,23 +36,35 @@ and further research into healthy or unhealthy people will benefit all future us
 speech systems.
 (\cite{pmlr-v116-kapur20a})
 
-\section{Project Aim}
+\section{Project Aims}
+
+The overall aim of this project is to contribute to open-source research concerning
+sEMG based silent speech systems. Originally this meant creating an improved model
+for sEMG silent speech and using an EMG dataset acquired from myself and other
+participants and then open-sourcing the new model and dataset.
+
+However after I decided to not pursue the data acquisition part of my project,
+the aim of my project was instead still focused on the research and development
+of novel methods to improve sEMG silent speech systems.
 
 \section{Project Objectives}
 
 As eluded to in the project initiation document, there are three objectives
 for this project, with one primary objective and two supplementary objectives.
 
-The first and most important objective which was focused on during the course
-of this project w
+The first and most important objective to achieving the aim of this project
+was to discover methods within the EMG silent speech literature and intuitions
+gained from analysing an open-source silent speech dataset to determine how
+to improve on existing methods.
+Formally, my objective here was to improve on existing methods by improving
+on existing methods by outperforming a state-of-the-art model on a task
+based on at least one evaluation metric. Before I commenced this project,
+I found the following two metrics were of particular interest within the
+silent speech domain: inference time (milliseconds between the model
+receiving an input and producing an output) and WER (word-error rate,
+a raw measure of the accuracy of a model).
 
-The primary objectives for this project are threefold:
-
-\begin{itemize}
-    \item \textit{Improve SOTA Approach:}
-    \item \textit{EMG Data Acquisition:}
-    \item \textit{Open-Source Release:}
-\end{itemize}
+The second objective for my project was
 
 The deliverables for this research project are an open-source
 sEMG silent speech machine learning system which outperforms the current
