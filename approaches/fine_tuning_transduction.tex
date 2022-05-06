@@ -75,10 +75,8 @@ recognition system on top of the transduction model will result in reduced perfo
   \caption{Comparison of Ideal Ground Truth and Predicted Mel Spectrograms}
   \label{fig:ideal-gt-vs-pred-mel}
   From both of these mel spectrograms, we can see the low level features
-  of the predicted mel spectrogram appear blurrier (the curvy red lines).
-  This is because the transduction model uses a simple linear layer (MLP) between the final
-  transformer layer and the output. This limits the ability of the model to produce
-  more fine tuned results compared to using a convolutional layer.
+  of the predicted mel spectrogram appear blurrier (the horizontal red lines
+  with blurry edges).
   Not pictured in the figures, is
   the text transcription for the utterances which is: '"Eh?" said one of the men, turning.'.
 \end{figure}
