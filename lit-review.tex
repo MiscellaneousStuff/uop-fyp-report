@@ -49,6 +49,8 @@ speech or classifying silent speech into text.
 
 \section{Data Augmentation via EMG Synthesis}
 
+\section{Data Augmentation Background}
+
 Data augmentation refers to techniques which are used to either increase
 the amount of available training data by adding slightly modified
 copies of the original data or to synthesize new examples entirely.
@@ -64,6 +66,8 @@ leads to substantial improvements in performance. For instance,
 when cropping was applied to an image recognition dataset for the
 Caltech 101 dataset, it lead to a Top-1 score increase of 13.82\%
 (\cite{geometric_augment}).
+
+\section{Applicability to EMG Domain}
 
 However unlike images, EMG data is a collection non-stationary
 time-series data which has been collected from different electrodes
@@ -90,3 +94,8 @@ each other because of the difference within the smaller time windows.
     \centering
     \includegraphics[width=0.75\linewidth]{graphics/emg_augment/real_vs_synth.png}
 \end{figure}
+
+\section{Successful EMG Augmentation Approaches}
+
+Despite this, there have been many successful data augmentation techniques
+for EMG and simliar EEG signals.

@@ -15,8 +15,10 @@ data into speech features, then using a vocoder to go from speech features
 into an audio waveform and then using a pretrained ASR model to predict speech
 from the waveform.
 
-The proposed method skips over the vocoder entirely which improves the
-end-to-end performance as there is now one less step involved.
+This proposed method skips over the vocoder entirely which improves the
+end-to-end performance as there is now one less step involved whilst
+also requiring far less training data, and therefore training time,
+for the entire silent speech recognition pipeline.
 
 \subsection{Related Work}
 
@@ -81,6 +83,16 @@ recognition system on top of the transduction model will result in reduced perfo
   Not pictured in the figures, is
   the text transcription for the utterances which is: '"Eh?" said one of the men, turning.'.
 \end{figure}
+
+\subsection{Proposed Method}
+
+My proposed method involves pre-training the state-of-the-art EMG silent speech
+transduction model from the second Digital Voicing paper (\cite{gaddy2021improved}),
+and then saving the predicted mel spectrogram speech features from the model as a
+custom dataset. Then this dataset will be used along with the ground truth audio
+files to train a regular speech recognition model. Based on my literature review
+and intuition from exploring the audio outputs viewing the mel spectrogram
+visulisations from the model, I was confident this approach would be successful.
 
 \subsection{Research Question}
 
