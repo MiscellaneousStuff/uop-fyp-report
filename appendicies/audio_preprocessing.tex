@@ -20,15 +20,18 @@ The preprocessing pipeline for the training set of the ground truth audio models
 included extra data augmentation steps. These techniques are regularly used in ASR
 models as they have been shown to regularise the training of the networks.
 
-\begin{python}
-train_audio_transforms = nn.Sequential(
-    torchaudio.transforms.MelSpectrogram(
-        sample_rate=16_000,
-        n_mels=128,
-        hop_length=160,
-        win_length=432,
-        n_fft=512,
-        center=False),
-    torchaudio.transforms.FrequencyMasking(freq_mask_param=15),
-    torchaudio.transforms.TimeMasking(time_mask_param=35))
-\end{python}
+\begin{figure}[hbtp]
+    \caption{Ground Truth Audio Trainset Preprocessing Pipeline}
+    \begin{python}
+    train_audio_transforms = nn.Sequential(
+        torchaudio.transforms.MelSpectrogram(
+            sample_rate=16_000,
+            n_mels=128,
+            hop_length=160,
+            win_length=432,
+            n_fft=512,
+            center=False),
+        torchaudio.transforms.FrequencyMasking(freq_mask_param=15),
+        torchaudio.transforms.TimeMasking(time_mask_param=35))
+    \end{python}
+\end{figure}
