@@ -59,12 +59,19 @@ Many methods exist to generate augmented data for machine learning.
 One of them is to apply geometric transformations such as: translations, rotations,
 cropping, flipping, scaling, etc. (\cite{data_augmentation_def}).
 
+This method is commonly applied in the computer vision domain and
+leads to substantial improvements in performance. For instance,
+when cropping was applied to an image recognition dataset for the
+Caltech 101 dataset, it lead to a Top-1 score increase of 13.82\%
+(\cite{geometric_augment}).
+
 However unlike images EMG data is a collection non-stationary
 time-series data which has been collected from different electrodes
 and also contains many other artefacts such as baseline noise,
 powerline interference and other contamination (\cite{semg_filtering}).
 Moreover, simple geometric transformations are not necessarily appropriate
-for EMG as they may impact time domain features.
+for EMG as they may impact time domain features as EMG signals are
+1-dimensional.
 
 Also, in computer vision projects, it is easy to determine whether
 an augmented dataset is similar to the original signal. However for EMG
