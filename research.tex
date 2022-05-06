@@ -5,16 +5,27 @@ at a high level. The individual approaches futher on contain the datasets,
 experimental conditions, assumptions, related work and evaluation metrics
 along with justification for each individual approach.
 
-\section{Full List of Evaluted Hypotheses}
+\section{Full List of Research Questions with Hypotheses}
 
-\begin{itemize}
-    \item \textit{Can fine tuning an ASR model on transduction predictions
-    improve performance for text classification?} \\
-    Measurable: WER of final system compared to SOTA for text classification \\
-    Measurable: WER of final system compared to SOTA for speech synthesis
-    \item \textit{How feasible is the synthesis of silent speech EMG signals
-    as a data augmentation technique for training EMG silent speech systems?}
-    Measurable: Inference time of text classification in milliseconds
-    Measurable: Inference time of full speech synthesis in milliseconds
-    Measurable: Memory requirements of transduction model in megabytes
-\end{itemize}
+\subsection{Data Augmentation via EMG Synthesis}
+\textit{Question: How feasible is the synthesis of silent speech EMG signals
+as a data augmentation technique for training EMG silent speech systems?} \\
+\textit{Hypothesis: Training an EMG synthesis model based on a small
+EMG dataset will improve the final performance of transduction model} \\
+Measurable: Test loss of the final transduction system when trained\\
+with augmented EMG data versus without\\
+Measurable: Visual inspection of the synthesized EMG signals\\
+Measurable: Visual inspection of the predicted mel spectrograms when
+traind with augmented EMG data versus without\\
+
+\subsection{Fine Tuning Speech Recognition on Model Predictions }
+\textit{Question: Can fine tuning an ASR model on a silent speech
+transduction models mel spectrogram predictions improve performance for
+text classification?} \\
+\textit{Hypothesis: Fine tuning an ASR model with the predicted
+mel spectrograms from a pre-trained silent speech transduction model
+can improve inference time and reduce the required training dataset
+while maintaining competitive accuracy} \\
+Measurable: WER of final system compared to SOTA for text classification \\
+Measurable: Dataset size required to train the ASR system in hours \\
+Measurable: Estimated end-to-end inference time for the system
