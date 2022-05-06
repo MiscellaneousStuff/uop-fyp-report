@@ -56,9 +56,22 @@ network (\cite{silent_speech_tonal}).
 My proposed method involves taking the transduction model from
 the original Digital Voicing (\cite{gaddy2020digital}) paper,
 and reversing the input and the output of the model.
+The model from the paper is simply a 3-layer, 1024 hidden dimension,
+bi-directional LSTM.
+
+The EMG inputs in this approach are preprocessed
+using the same technique described in the paper. One key detail
+about the synthesized EMG signals in this approach is that it is
+possible to use the raw EMG signals as the output for this model.
+This reason this was not done was because it would have added
+more complexity to the decoding of the EMG signals and the purpose
+of these initial experiments was to determine who feasible EMG
+synthesis for during vocalised speech.
+
 In other words feeding in a ground truth mel spectrogram into the
 model and having it predict the EMG signals, in a sequence to
 sequence manner.
+
 The intuition
 behind this is that, if the model is able to take the featurised
 EMG inputs and predict either MFCCs or mel spectrograms reliably,
@@ -67,21 +80,25 @@ it may be possible to do the reverse.
 \subsection{Hyperparameter Tuning}
 
 Different hyperparameter values were experimented with to determine what
-produced the lowest loss value on a validation set. The following
-hyperparameters of the proposed model were evaluted:
-number of LSTM layers, LSTM hidden dimension size.
+produced the lowest loss value on a validation set. Initial experiments
+showed that using an LSTM model with less than 3-layers performed
+far worse than the 3-layers so I settled on 3-layers. Therefore, I only
+experimented with the hidden dimension size of the LSTM.
 
-The results of those hyperparameter experiments are as follows:
+The results of those hyperparameter experiments for the best
+performing experiments are recorded:
 
 % (Desc.) UoP: FYP: SEMG ASR (Finetune DS2 on Transducer Outputs #8)
 {\small\begin{center}
     \captionof{table}{EMG Synthesis Model Hyperparameter Results}
-    \begin{tabular} {  l  c | c  }
+    \begin{tabular} {  c | c | c  }
     \hline
-    \textbf{LSTM Layers} & \textbf{LSTM Hidden Dimension} & \textbf{Test Loss} \\
+    \textbf{LSTM Hidden Dimension Size} & \textbf{No. of Epochs} & \textbf{Test Loss} \\
     \hline
-    Ground Truth (GT) & 66.70 & 110.49 \\
-    Silent, Voiced, GT & \textbf{41.02} & \textbf{81.69} \\
+    128 & 100 & 191.56 \\
+    128 & 1000 & 104.30 \\
+    256 & 1000 & 102.266 \\
+    256 & 1000 & 98.64 \\
     \hline
     \end{tabular}
 \end{center}}
@@ -98,6 +115,7 @@ My initial hypothesis was that it was possible to simply reverse the
 transduction network, which was introduced in the Digital Voicing paper
 for transcribing from EMG features into speech features, but instead
 reverse the features.
+
 From my findings I found that this wasn't true because the low level 
 features of the EMG data are difficult for the LSTM network to correctly
 reproduce.
