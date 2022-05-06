@@ -2,13 +2,15 @@
 
 Overall this project was highly successful in achieving it's primary objective,
 which was to find a method of improving either silent speech classification
-or transduction based on at least one evaluation metric. Instead a method is
-proposed which achieves the same WER as a prior state-of-the-art (SOTA)
+or transduction based on at least one evaluation metric. A novel training
+method is proposed which achieves the same WER as a prior state-of-the-art (SOTA)
 system, 68\% for the Digital Voicing approach (\cite{gaddy2020digital})
-and 68.26\% for the proposed approach from this project while requiring
+and 68.26\% for the proposed approach from this project.
+However the proposed method requires
 115 times less training data to train the ASR component of the system
-and removing the vocoder component which would been required for the
-previous approach.
+making the training data requirements and training time both drastically lower.
+Also the the vocoder component required by the old approach is also removed
+which leads to a faster end-to-end system.
 
 Secondly, the objective to open-source the method and dataset used for
 this approach was also successful with the successful
@@ -26,4 +28,4 @@ highly beneficial for researchers.
 
 In conclusion, this project ultimately provides a method which reduces
 the required data and machine learning system components for silent
-speech recognition
+speech recognition whilst still achieving competitive performance.
