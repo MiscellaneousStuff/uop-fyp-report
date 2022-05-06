@@ -49,7 +49,7 @@ error instead of squared error because it has less of a drastic
 effect on their overall loss calculation. For this task, we only
 care about predicting the vocalised EMG signals given speech features
 so mean squared error should provide a stronger signal to the overall
-network.
+network (\cite{silent_speech_tonal}).
 
 \subsection{Summary}
 
@@ -59,9 +59,11 @@ transduction network, which was introduced in the Digital Voicing paper
 for transcribing from EMG features into speech features, but instead
 reverse the features.
 From my findings I found that this wasn't true because the low level 
-features of the EMG data are difficult for the LSTM network to correctly reproduce.
+features of the EMG data are difficult for the LSTM network to correctly
+reproduce.
 
 In hindsight my approach could have been improved by being more selective in
 the early stages. I could have determined which electrode contributed the most
 in the transduction task, and then tried to just synthesise the signals for that 
-particular channel and then tried to synthesise an increasing number of electrode channels.
+particular channel and then tried to synthesise an increasing number of
+electrode channels.
