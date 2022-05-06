@@ -46,19 +46,67 @@ to produce speech synthesis or speech recognition systems for machine
 learning models.
 \end{itemize}
 
-\section{Digital Voicing of Silent Speech}
+\section{Silent Speech Transduction}
 
 There are two primary landmark papers released in the silent speech domain
 which this project takes large inspiration from. These are
 "Digital Voicing of Silent Speech" (\cite{gaddy2020digital}) and
 "An Improved Model for Voicing Silent Speech" (\cite{gaddy2021improved}).
 
-\subsection{Relevance}
+This direction of research is the first successful attempt at transducing
+speech directly from EMG signals recorded when a person is silently
+articulating speech.
 
-As the primary goal of my project was to find new methods of improving silent
-speech systems in general, it was useful to find an open-source silent speech
-dataset which could either be used for producing audio speech from silent
-speech or classifying silent speech into text.
+The original paper discusses how training silent speech models purely on biosignals
+recorded during the silent articulation of speech leads to a poor training
+signal due to differences between silent and vocalized articulation of
+speech when transducing speech from this data. The main reason for 
+this is the silent speech data has no time-aligned audio to use as a 
+training target.
+
+The original paper addresses this issue by using a set of utterances recorded during
+silent and vocalized speech and finding alignments between the two recordings
+and finding an alignment between both instances, using Dynamic
+Time Warping.
+
+The authors also released their dataset used in their research
+to enable other authors to research silent speech. This makes
+it very suitable for this project as not only is it free
+to access, it has also been proven to be useful as the authors
+are able to use it to create the first 
+state-of-the-art transduction model for EMG silent speech.
+
+Model learns its own input features directly from EMG signals
+instead of hand-crafted features in prior work.
+New model uses convolutional layers to extract features from the signals.
+Transformer-encoder layers used to propagate signals across longer distances
+instead of bi-directional LSTM layers.
+Additional signal introduced during learning by introducing auxillary task of
+predicting phoneme labels in addition to predicting speech audio features.
+On open vocabulary intelligibility evaluation, the new model improves the absolute WER by 25.8\%.
+
+The new state-of-the-art performance is established using
+3 different methods compared to the previous paper.
+
+\begin{itemize}
+  \item \emph{Replace LSTMs with Transformer-Encoder:}
+  Model bi-directional triple stacked 1024-unit LSTM layer replaced with 6 layer Transformer-Encoder
+  layer to predict EMG features found using a ResNet inspired block
+  over 1 second to predict speech along with phoneme loss signal.
+  Ablation shows WER go from 42.2\% to 45.2\% when this is removed.
+  \item \emph{Introduce Phoneme Loss:}
+  Introduced auxillary phoneme prediction task as an additional 
+  output of the self-attention transformer-encoder. This self-supervisory 
+  signal is used to improve the performance of the network by learning to 
+  predict the phoneme of the speech which is being detected and
+  also regularises training.
+  Ablation shows WER go from 42.2\% to 51.7\% when this is removed.
+  \item \emph{Replace hand-designed features with convolution features:}
+  Uses a CNN block based on ResNet to extract features from EMG signals which are end-to-end
+  trainable instead of using hand-crafted features to improve the representational power of the network.
+  Ablation shows WER go from 42.2\% to 46\% when this is removed.
+\end{itemize}
+(\cite{gaddy2021improved}).
 
 \section{Data Augmentation via EMG Synthesis}
 
