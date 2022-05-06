@@ -41,24 +41,21 @@ PyTorch (\cite{pytorch}) and default Python random number generator.
 
 \subsection{Data Augmentation via EMG Synthesis}
 
-{\begin{center}
-    \captionof{table}{EMG Synthesis Research Questions}
-    \begin{tabular} {  l  c  c  }
-    \hline
-    Question & How feasible is the synthesis of silent speech EMG signals
-    as a data augmentation technique for training EMG silent speech systems?\\
-    Hypothesis & Training an EMG synthesis model based on a small
-    EMG dataset will improve the final performance of transduction model\\
-    Measurable & Test loss of the final transduction system when trained
-    with augmented EMG data versus without \\
-    Measurable & Visual inspection of the synthesized EMG signals \\
-    Measurable & Visual inspection of the predicted mel spectrograms when
-    trained with augmented EMG data versus without
-    \end{tabular}
-\end{center}}
+Question: How feasible is the synthesis of silent speech EMG signals
+as a data augmentation technique for training EMG silent speech systems?
+
+Hypothesis: Training an EMG synthesis model based on a small
+EMG dataset will improve the final performance of transduction model
+
+Measurable: Test loss of the final transduction system when trained
+with augmented EMG data versus without
+
+Measurable: Visual inspection of the synthesized EMG signals
+
+Measurable: Visual inspection of the predicted mel spectrograms when
+trained with augmented EMG data versus without
 
 \subsection{Fine Tuning Speech Recognition on Transducer Predictions }
-
 
 Question: Can fine tuning an ASR model on a silent speech
 transduction models mel spectrogram predictions improve performance for
@@ -72,7 +69,9 @@ while maintaining competitive accuracy \\
 Measurable: WER of final system compared to SOTA for text classification \\
 Measurable: Dataset size required to train the ASR system in hours \\
 
-The end-to-end inference time of the system is not measured in the
+The end-to-end inference time of the system is not measured in this
 approach. The reason for this is because, as the approach removes one
 entire component compared to previous approaches, it was determined that
-measuring this difference is redundant.
+measuring this difference is redundant as the system is guaranteed
+to be faster. Measuring this difference will be conducted in future
+research.
