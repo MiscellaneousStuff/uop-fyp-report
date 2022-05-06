@@ -1,1 +1,20 @@
 \chapter{Future Work} \label{chap:future-work}
+
+\section{Implementation Errors}
+
+\subsection{Data Augmentation via EMG Synthesis}
+
+
+
+\subsection{Fine Tuning Speech Recognition on Model Predictions}
+
+The experiments conducted for the fine tuning ASR approach contained
+a major flaw where the ground truth ASR model was trained using
+ground audio data which was transformed into raw mel spectrograms
+but were refined using predicted log-mel spectrograms from the
+transduction model.
+
+A visual demonstration of the difference between these representations
+was presented in Figure \ref{fig:real-gt-vs-pred-mel}. Future work
+on this method should explore whether fixing this bug results in
+significantly improved performance or not.
